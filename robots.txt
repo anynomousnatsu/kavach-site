@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+Disallow: /_snippets/
+
+Sitemap: https://kavach.com.np/sitemap.xml

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Service Record — How Kavach Documentation Works | Kavach Pest Management</title>
+<meta name="description" content="An interactive sample of a real Kavach monthly service record: visit log, numbered station map, photo report, product batch numbers, activity trend and wall certificate. This is what no other pest control company in Kathmandu can produce.">
+<link rel="canonical" href="https://kavach.com.np/the-record">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="The Service Record — Kavach Pest Management">
+<meta property="og:description" content="Visit logs, station maps, batch numbers, trend charts. Every visit, on record.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 5.5V11c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5.5L12 2Z" stroke="#101E26" stroke-width="1.6" fill="none"/></svg>
+      KAVACH
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+        <li><a href="/kitchen-shield.html">Restaurants</a></li>
+        <li><a href="/room-shield.html">Hotels</a></li>
+        <li><a href="/home-shield.html">Home</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/the-record.html" aria-current="page">The Record</a></li>
+        <li><a href="/pests.html">Pests</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="night-indicator"><span class="dot"></span><span class="ni-text">Next night shift 22:00 NPT</span></div>
+      <a class="header-phone" href="tel:+9779818499308">981-8499308</a>
+      <a class="btn btn-primary btn-sm" href="/contact.html">Free Inspection</a>
+    </div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="/kitchen-shield.html">Restaurants</a></li>
+      <li><a href="/room-shield.html">Hotels</a></li>
+      <li><a href="/home-shield.html">Home</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/the-record.html">The Record</a></li>
+      <li><a href="/pests.html">Pests</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="mobile-cta">
+      <a class="btn btn-primary" href="/contact.html">Book a Free Inspection</a>
+      <a class="btn btn-secondary" href="tel:+9779818499308">Call 981-8499308</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-bottom:32px">
+    <div class="container grid grid-12">
+      <div class="col-8">
+        <p class="label">The Record · Sample Document</p>
+        <h1>This is the moat.</h1>
+        <p class="lead">Below is a full sample of the monthly record every Kavach client holds: a fictional-but-realistic month for "Thamel Kitchen", 1,850 sq ft, contract since February 2026. Click through it. Then ask your current provider for theirs.</p>
+      </div>
+      <div class="col-4">
+        <div class="stamp mt-32">Sample record<br>Thamel Kitchen · 2026-07</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE VIEWER -->
+  <section style="padding-top:32px">
+    <div class="container">
+      <div class="record-viewer" data-tabs>
+        <div class="record-header">
+          <span class="mono">Client: Thamel Kitchen (sample) · 1,850 sq ft · Kitchen Shield M</span>
+          <span class="mono">Contract since 2026-02 · Technician: R. Tamang</span>
+        </div>
+        <div class="record-tabs" role="tablist" aria-label="Service record sections">
+          <button role="tab" id="tab-log" aria-controls="pane-log" aria-selected="true">Visit Log</button>
+          <button role="tab" id="tab-map" aria-controls="pane-map" aria-selected="false">Station Map</button>
+          <button role="tab" id="tab-photo" aria-controls="pane-photo" aria-selected="false">Photo Report</button>
+          <button role="tab" id="tab-products" aria-controls="pane-products" aria-selected="false">Products Used</button>
+          <button role="tab" id="tab-trend" aria-controls="pane-trend" aria-selected="false">Trend</button>
+          <button role="tab" id="tab-cert" aria-controls="pane-cert" aria-selected="false">Certificate</button>
+        </div>
+
+        <!-- TAB 1 · VISIT LOG -->
+        <div class="record-pane" role="tabpanel" id="pane-log" aria-labelledby="tab-log">
+          <p class="label mb-16">Last 12 visits · click any row for detail</p>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead><tr><th>Date</th><th>In / Out</th><th>Technician</th><th>Duration</th><th>Areas covered</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr class="visit-row"><td class="num-cell">2026-07-12</td><td class="num-cell">23:30 – 01:20</td><td>R. Tamang</td><td class="num-cell">1h 50m</td><td>Kitchen, dry store, drains, back lane</td><td><span class="pip pip--clear">Clear</span></td></tr>
+                <tr class="visit-detail" hidden><td colspan="6">All 14 stations checked, no fresh activity. Gel bait refreshed at stations 02, 07. Drain foam applied to both floor drains. ILT glue board replaced (3 house flies, 1 drain fly). Corrective action: cardboard accumulating in dry store corner — recommend same-day disposal.</td></tr>
+                <tr class="visit-row"><td class="num-cell">2026-06-14</td><td class="num-cell">23:40 – 01:35</td><td>R. Tamang</td><td class="num-cell">1h 55m</td><td>Kitchen, dry store, drains</td><td><span class="pip pip--watch">Activity ▲</span></td></tr>
+                <tr class="visit-detail" hidden><td colspan="6">Fresh German cockroach droppings at station 07 (dry store, shelving joint) and live nymphs under cold room compressor. Additional gel applied, monitor density doubled in dry store. Follow-up callback scheduled 2026-06-16 — completed, activity confirmed declining.</td></tr>
+                <tr class="visit-row"><td class="num-cell">2026-05-10</td><td class="num-cell">23:25 – 01:10</td><td>R. Tamang</td><td class="num-cell">1h 45m</td><td>Kitchen, dry store, back lane</td><td><span class="pip pip--clear">Clear</span></td></tr>
+                <tr class="visit-detail" hidden><td colspan="6">No activity at any station. Rodent bait untouched for second consecutive month — station 12 (back door) moved 2 m to lane side. Door sweep proofing quote left with manager.</td></tr>
+                <tr class="visit-row"><td class="num-cell">2026-04-12</td><td class="num-cell">23:35 – 01:30</td><td>R. Tamang</td><td class="num-cell">1h 55m</td><td>Kitchen, dry store, drains</td><td><span class="pip pip--clear">Clear</span></td></tr>
+                <tr class="visit-detail" hidden><td colspan="6">Monsoon prep visit: drain treatment doubled, fly monitoring baseline reset for season. All stations clear.</td></tr>
+                <tr class="visit-row"><td class="num-cell">2026-03-14</td><td class="num-cell">23:30 – 01:40</td><td>R. Tamang</td><td class="num-cell">2h 10m</td><td>Full premises</td><td><span class="pip pip--watch">Activity ▲</span></td></tr>
+                <tr class="visit-detail" hidden><td colspan="6">Mouse droppings at station 12. Snap-trap supplement placed, catch confirmed on callback 2026-03-17. Entry point identified: gap under back door — proofing recommended in writing (second notice).</td></tr>
+                <tr class="visit-row"><td class="num-cell">2026-02-14</td><td class="num-cell">23:00 – 01:55</td><td>R. Tamang + G. Shrestha</td><td class="num-cell">2h 55m</td><td>Full premises — baseline</td><td><span class="pip pip--alert">Action reqd</span></td></tr>
+                <tr class="visit-detail" hidden><td colspan="6">Contract start: full baseline inspection and knockdown. Moderate German cockroach infestation in dry store and under cold room compressor; drain flies both drains. 14 stations installed and mapped. Knockdown treatment applied. Activity index recorded: 100 (baseline).</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2 · STATION MAP -->
+        <div class="record-pane" role="tabpanel" id="pane-map" aria-labelledby="tab-map" hidden>
+          <p class="label mb-16">14 monitoring &amp; bait stations · hover or tap a number</p>
+          <div class="station-map-wrap">
+            <svg viewBox="0 0 900 460" role="img" aria-label="Floor plan of a restaurant kitchen with 14 numbered monitoring stations">
+              <rect x="20" y="20" width="860" height="420" fill="none" stroke="#101E26" stroke-width="1.5"/>
+              <!-- internal walls -->
+              <line x1="560" y1="20" x2="560" y2="180" stroke="#101E26" stroke-width="1.5"/>
+              <line x1="560" y1="180" x2="880" y2="180" stroke="#101E26" stroke-width="1.5"/>
+              <text x="720" y="60" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#3A4A53">DRY STORE</text>
+              <line x1="20" y1="330" x2="240" y2="330" stroke="#101E26" stroke-width="1.5"/>
+              <line x1="240" y1="330" x2="240" y2="440" stroke="#101E26" stroke-width="1.5"/>
+              <text x="128" y="390" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#3A4A53">COLD ROOM</text>
+              <text x="290" y="60" font-family="IBM Plex Mono, monospace" font-size="11" fill="#3A4A53">MAIN KITCHEN</text>
+              <!-- equipment -->
+              <rect x="60" y="90" width="200" height="70" fill="none" stroke="#101E26" stroke-width="1"/>
+              <text x="160" y="130" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#71818A">RANGE LINE</text>
+              <rect x="320" y="200" width="180" height="80" fill="none" stroke="#101E26" stroke-width="1"/>
+              <text x="410" y="245" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#71818A">PREP ISLAND</text>
+              <rect x="600" y="300" width="140" height="90" fill="none" stroke="#101E26" stroke-width="1"/>
+              <text x="670" y="350" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#71818A">WASH-UP</text>
+              <rect x="800" y="20" width="80" height="8" fill="#101E26"/>
+              <text x="840" y="45" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#71818A">BACK DOOR</text>
+
+              <!-- stations: clear=petrol, activity=ochre -->
+              <g class="station-dot" data-info="STATION 01 · RANGE LINE VOID · GEL + MONITOR · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="90" cy="180" r="13" fill="#1D4E63"/><text x="90" y="184" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">1</text></g>
+              <g class="station-dot" data-info="STATION 02 · RANGE LINE EAST · GEL BAIT POINT · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="235" cy="180" r="13" fill="#1D4E63"/><text x="235" y="184" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">2</text></g>
+              <g class="station-dot" data-info="STATION 03 · PREP ISLAND DRAWERS · MONITOR · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="410" cy="180" r="13" fill="#1D4E63"/><text x="410" y="184" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">3</text></g>
+              <g class="station-dot" data-info="STATION 04 · FLOOR DRAIN WEST · DRAIN TREATMENT POINT · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="300" cy="420" r="13" fill="#1D4E63"/><text x="300" y="424" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">4</text></g>
+              <g class="station-dot" data-info="STATION 05 · FLOOR DRAIN EAST · DRAIN TREATMENT POINT · LAST CHECKED 2026-07-12 · STATUS: ACTIVITY ▲ DRAIN FLIES — RETREATED"><circle cx="520" cy="420" r="13" fill="#C8752A"/><text x="520" y="424" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">5</text></g>
+              <g class="station-dot" data-info="STATION 06 · DRY STORE WEST SHELVING · GLUE BOARD · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="610" cy="90" r="13" fill="#1D4E63"/><text x="610" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">6</text></g>
+              <g class="station-dot" data-info="STATION 07 · DRY STORE · GLUE BOARD · LAST CHECKED 2026-07-12 · STATUS: ACTIVITY ▲ FRESH DROPPINGS 06-14 — MONITORING DOUBLED"><circle cx="720" cy="130" r="13" fill="#C8752A"/><text x="720" y="134" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">7</text></g>
+              <g class="station-dot" data-info="STATION 08 · DRY STORE PHEROMONE TRAP · STORED PRODUCT INSECTS · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="830" cy="90" r="13" fill="#1D4E63"/><text x="830" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">8</text></g>
+              <g class="station-dot" data-info="STATION 09 · COLD ROOM COMPRESSOR VOID · GEL + MONITOR · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="60" cy="360" r="13" fill="#1D4E63"/><text x="60" y="364" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">9</text></g>
+              <g class="station-dot" data-info="STATION 10 · COLD ROOM DOOR EDGE · MONITOR · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="215" cy="360" r="13" fill="#1D4E63"/><text x="215" y="364" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">10</text></g>
+              <g class="station-dot" data-info="STATION 11 · WASH-UP PLINTH · GEL + MONITOR · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="670" cy="410" r="13" fill="#1D4E63"/><text x="670" y="414" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">11</text></g>
+              <g class="station-dot" data-info="STATION 12 · BACK DOOR · TAMPER-PROOF RODENT BAIT STATION · LAST CHECKED 2026-07-12 · STATUS: ACTIVITY ▲ TAKE RECORDED 03-14 — PROOFING RECOMMENDED"><circle cx="840" cy="220" r="13" fill="#C8752A"/><text x="840" y="224" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">12</text></g>
+              <g class="station-dot" data-info="STATION 13 · BACK LANE EXTERIOR · TAMPER-PROOF RODENT BAIT STATION · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="840" cy="330" r="13" fill="#1D4E63"/><text x="840" y="334" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">13</text></g>
+              <g class="station-dot" data-info="STATION 14 · INSECT LIGHT TRAP · GLUE BOARD COUNTED MONTHLY · LAST CHECKED 2026-07-12 · STATUS: CLEAR"><circle cx="410" cy="90" r="13" fill="#1D4E63"/><text x="410" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFFDF9">14</text></g>
+            </svg>
+            <div class="station-tooltip" aria-live="polite">Hover or tap a station number.</div>
+          </div>
+        </div>
+
+        <!-- TAB 3 · PHOTO REPORT -->
+        <div class="record-pane" role="tabpanel" id="pane-photo" aria-labelledby="tab-photo" hidden>
+          <p class="label mb-16">Sent to the owner on Viber, 06:00 the morning after the visit</p>
+          <div class="photo-grid">
+            <div class="photo-item">
+              <figure>
+                <div class="ph"><span class="mono">[ FIELD PHOTO — TO BE SHOT ON LAUNCH TREATMENTS ]</span></div>
+                <figcaption>THAMEL · KITCHEN 02 · 2026-07-12 · 23:47</figcaption>
+              </figure>
+              <p class="finding">Station 07 glue board, dry store: no fresh captures. Activity from June resolved.</p>
+            </div>
+            <div class="photo-item">
+              <figure>
+                <div class="ph"><span class="mono">[ FIELD PHOTO — TO BE SHOT ON LAUNCH TREATMENTS ]</span></div>
+                <figcaption>THAMEL · DRAIN E · 2026-07-12 · 00:12</figcaption>
+              </figure>
+              <p class="finding">East floor drain foamed; drain fly breeding film stripped. Recheck at next visit.</p>
+            </div>
+            <div class="photo-item">
+              <figure>
+                <div class="ph"><span class="mono">[ FIELD PHOTO — TO BE SHOT ON LAUNCH TREATMENTS ]</span></div>
+                <figcaption>THAMEL · BACK DOOR · 2026-07-12 · 00:31</figcaption>
+              </figure>
+              <p class="finding">Station 12 bait untouched — third consecutive clear month. Door gap still unproofed (recommendation stands).</p>
+            </div>
+            <div class="photo-item">
+              <figure>
+                <div class="ph"><span class="mono">[ FIELD PHOTO — TO BE SHOT ON LAUNCH TREATMENTS ]</span></div>
+                <figcaption>THAMEL · LOGBOOK · 2026-07-12 · 01:18</figcaption>
+              </figure>
+              <p class="finding">Logbook entry completed and countersigned by night manager.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4 · PRODUCTS USED -->
+        <div class="record-pane" role="tabpanel" id="pane-products" aria-labelledby="tab-products" hidden>
+          <p class="label mb-16">Visit of 2026-07-12 · all products registered in Nepal, sourced from licensed importers</p>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead><tr><th>Product</th><th>Active ingredient</th><th>Batch no.</th><th>Qty used</th><th>Application zone</th><th>Re-entry</th></tr></thead>
+              <tbody>
+                <tr><td>Cockroach gel bait</td><td>Fipronil 0.05%</td><td class="num-cell">FG-2604-118</td><td class="num-cell">6 g</td><td>Harbourage points, equipment voids</td><td class="num-cell">None (gel)</td></tr>
+                <tr><td>Residual concentrate</td><td>Imidacloprid 30.5% SC</td><td class="num-cell">IM-2603-077</td><td class="num-cell">40 ml dil.</td><td>Crack &amp; crevice, non-food surfaces</td><td class="num-cell">4 hrs</td></tr>
+                <tr><td>Drain foam treatment</td><td>Bio-enzymatic</td><td class="num-cell">DF-2606-021</td><td class="num-cell">120 ml</td><td>Floor drains W + E</td><td class="num-cell">1 hr</td></tr>
+                <tr><td>Rodenticide blocks</td><td>Bromadiolone 0.005%</td><td class="num-cell">BR-2601-431</td><td class="num-cell">2 blocks</td><td>Tamper-proof stations 12, 13 only</td><td class="num-cell">N/A</td></tr>
+                <tr><td>ILT glue board</td><td>—</td><td class="num-cell">GB-2607-004</td><td class="num-cell">1 board</td><td>Station 14</td><td class="num-cell">N/A</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-16"><strong>This table is what an auditor asks for — and what no competitor in Kathmandu can produce.</strong> Batch numbers trace every gram of chemical in your kitchen back to a licensed importer's invoice.</p>
+        </div>
+
+        <!-- TAB 5 · TREND -->
+        <div class="record-pane" role="tabpanel" id="pane-trend" aria-labelledby="tab-trend" hidden>
+          <p class="label mb-16">Pest activity index · monthly monitor captures, indexed to baseline = 100</p>
+          <svg viewBox="0 0 720 260" role="img" aria-label="Line chart: pest activity index falling from 100 in February to 22 in July">
+            <line x1="60" y1="20" x2="60" y2="220" stroke="#D6CEC2" stroke-width="1"/>
+            <line x1="60" y1="220" x2="690" y2="220" stroke="#D6CEC2" stroke-width="1"/>
+            <text x="50" y="45" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="#71818A">100</text>
+            <text x="50" y="130" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="#71818A">50</text>
+            <text x="50" y="220" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="10" fill="#71818A">0</text>
+            <line x1="60" y1="40" x2="690" y2="40" stroke="#EFEAE1" stroke-width="1"/>
+            <line x1="60" y1="130" x2="690" y2="130" stroke="#EFEAE1" stroke-width="1"/>
+            <polyline points="100,40 215,94 330,148 445,120 560,166 675,180" fill="none" stroke="#1D4E63" stroke-width="2" stroke-linejoin="round"/>
+            <g fill="#1D4E63">
+              <circle cx="100" cy="40" r="4"/><circle cx="215" cy="94" r="4"/><circle cx="330" cy="148" r="4"/><circle cx="445" cy="120" r="4"/><circle cx="560" cy="166" r="4"/><circle cx="675" cy="180" r="4"/>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#71818A" text-anchor="middle">
+              <text x="100" y="240">FEB</text><text x="215" y="240">MAR</text><text x="330" y="240">APR</text><text x="445" y="240">MAY</text><text x="560" y="240">JUN</text><text x="675" y="240">JUL</text>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#1D4E63" text-anchor="middle">
+              <text x="100" y="28">100</text><text x="215" y="82">70</text><text x="330" y="136">40</text><text x="445" y="108">55</text><text x="560" y="154">30</text><text x="675" y="170">22</text>
+            </g>
+          </svg>
+          <p class="trend-note">ACTIVITY DOWN 78% SINCE PROGRAMME START. THE MAY BUMP IS THE MONSOON — AND WHY MONITORING MATTERS.</p>
+        </div>
+
+        <!-- TAB 6 · CERTIFICATE -->
+        <div class="record-pane" role="tabpanel" id="pane-cert" aria-labelledby="tab-cert" hidden>
+          <div class="certificate">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:32px;margin:0 auto 12px"><path d="M12 2L4 5.5V11c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5.5L12 2Z" stroke="#1D4E63" stroke-width="1.6"/></svg>
+            <p class="label">Kavach Pest Management Pvt. Ltd.</p>
+            <h3 class="mt-8">Certificate of Pest Management</h3>
+            <hr class="cert-rule">
+            <p>This certifies that</p>
+            <p class="mono-lg mt-8"><strong>THAMEL KITCHEN (SAMPLE)</strong></p>
+            <p class="mt-8">is covered by a monthly pest management programme:<br>cockroaches · rodents · flies · stored product insects</p>
+            <hr class="cert-rule">
+            <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+              <span class="mono">Period: 2026-07 — 2026-09</span>
+              <span class="mono">Technician: R. Tamang</span>
+            </div>
+            <p class="mono mt-16">Verify: 981-8499308 · kavach.com.np</p>
+          </div>
+          <p class="text-center mt-24"><a class="btn btn-secondary" href="/assets/docs/kavach-sample-service-record.pdf" download>Download sample record (PDF)</a></p>
+        </div>
+      </div>
+
+      <!-- The challenge -->
+      <div class="challenge-band mt-48" style="border-left:none;border-right:none">
+        <blockquote>"Ask your current pest control company for last month's product batch numbers."</blockquote>
+        <p class="follow">If they cannot produce them in five minutes, they are not doing pest management. They are spraying.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DOCUMENTATION MATTERS -->
+  <section class="reveal" style="padding-top:0">
+    <div class="container">
+      <div class="section-head"><span class="idx">02 / Why It Matters</span><h2>Who asks for this file</h2></div>
+      <ol class="num-rows">
+        <li class="num-row"><span class="num">01</span><h4>DFTQC inspectors</h4><p>The Food Hygiene and Quality Act 2081 requires pest-control measures at every licensed food premises. A logbook with batch numbers ends that conversation in your favour. <a href="/guides/dftqc-pest-control-requirements.html">Read the guide →</a></p></li>
+        <li class="num-row"><span class="num">02</span><h4>HACCP &amp; hotel audits</h4><p>Any HACCP-aligned audit — and every serious hotel group audit — requires documented pest monitoring with trend data. This record is built to that standard.</p></li>
+        <li class="num-row"><span class="num">03</span><h4>Corporate clients &amp; tour operators</h4><p>Foreign tour operators and corporate caterers ask their venues for pest-control evidence. Your certificate and file are the answer.</p></li>
+        <li class="num-row"><span class="num">04</span><h4>Food delivery platform audits</h4><p>Delivery platforms increasingly audit kitchen hygiene. The wall certificate and photo reports satisfy them without a second visit.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- WHAT WE LOG -->
+  <section class="reveal" style="padding-top:0">
+    <div class="container grid grid-12">
+      <div class="col-7">
+        <div class="section-head" style="margin-bottom:24px"><span class="idx">03 / What We Log</span><h2>And why each line exists</h2></div>
+        <ul class="num-rows">
+          <li class="num-row"><span class="num">A</span><h4>Batch numbers</h4><p>Trace every product to a licensed importer's invoice. Your legal protection and ours.</p></li>
+          <li class="num-row"><span class="num">B</span><h4>Re-entry intervals</h4><p>When each treated zone is safe to use again. Written down, never guessed, never shortened to please anyone.</p></li>
+          <li class="num-row"><span class="num">C</span><h4>Activity index</h4><p>Monitor captures counted monthly and indexed. It turns "seems better" into a number an auditor can read.</p></li>
+        </ul>
+      </div>
+      <div class="col-5">
+        <div class="panel panel--recessed mt-48">
+          <p class="label">Switching providers?</p>
+          <p class="mt-8">We'll open your file with a full baseline inspection at no charge — every station mapped, every finding photographed, day one.</p>
+          <a class="btn btn-primary mt-16" href="/contact.html" style="display:inline-block">Book the Baseline</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Your kitchen deserves a file like this</h2>
+        <p>Free inspection, published prices, and a record from visit one.</p>
+        <div class="hero-ctas mt-24">
+          <a class="btn btn-primary" href="/contact.html" style="background:var(--accent)">Book a Free Inspection</a>
+          <a class="btn btn-secondary" href="/pricing.html">See Prices First</a>
+        </div>
+      </div>
+      <div>
+        <p class="label">Call or message</p>
+        <p class="mono-lg mt-8"><a href="tel:+9779818499308" style="text-decoration:none">981-8499308</a></p>
+        <div class="night-indicator mt-16"><span class="dot"></span><span class="ni-text">Next night shift 22:00 NPT</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/kitchen-shield.html">Kitchen Shield — Restaurants</a></li>
+          <li><a href="/room-shield.html">Room Shield — Hotels</a></li>
+          <li><a href="/store-shield.html">Store Shield — Warehouses</a></li>
+          <li><a href="/home-shield.html">Home Shield — Residential</a></li>
+          <li><a href="/treatments.html">One-off Treatments</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About Kavach</a></li>
+          <li><a href="/the-record.html">The Record</a></li>
+          <li><a href="/pests.html">Pest Library</a></li>
+          <li><a href="/guides/">Guides</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+9779818499308">981-8499308</a></li>
+          <li><a href="https://wa.me/9779818499308">WhatsApp</a> · <a href="viber://chat?number=%2B9779818499308">Viber</a></li>
+          <li><a href="mailto:grish@kavach.com.np">grish@kavach.com.np</a></li>
+          <li>Chabahil, Kathmandu</li>
+          <li class="mono">Office SUN–FRI 09:00–18:00</li>
+          <li class="mono">Service EVERY NIGHT 22:00–05:00</li>
+          <li class="mono">Emergency 24 HRS</li>
+        </ul>
+      </div>
+      <div>
+        <h4>On Record</h4>
+        <ul>
+          <li class="mono">Kavach Pest Management Pvt. Ltd.</li>
+          <li class="mono">Reg. No. 000000/082/083</li>
+          <li class="mono">PAN 000000000</li>
+          <li class="mono">Pesticides sourced from licensed importers only</li>
+          <li class="mono">Serving Kathmandu · Lalitpur · Bhaktapur</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 Kavach Pest Management Pvt. Ltd.</span>
+      <span>Every visit, on record.</span>
+      <span>सफा भान्सा, लिखित प्रमाण।</span>
+    </div>
+  </div>
+</footer>
+<div class="call-bar">
+  <a class="cb-msg" href="https://wa.me/9779818499308?text=Hi%20Kavach%2C%20I%27d%20like%20a%20free%20inspection.">WhatsApp</a>
+  <a class="cb-msg" href="viber://chat?number=%2B9779818499308">Viber</a>
+  <a class="cb-call" href="tel:+9779818499308">Call Now</a>
+</div>
+
+<script src="/assets/js/nav.js" defer></script>
+<script src="/assets/js/reveal.js" defer></script>
+<script src="/assets/js/record.js" defer></script>
+</body>
+</html>

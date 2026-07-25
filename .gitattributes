@@ -1,0 +1,16 @@
+# Normalise text files in the repo, keep them LF
+* text=auto eol=lf
+
+# Binary assets — never apply line-ending conversion.
+# The sample record PDF is uncompressed and mostly ASCII, so git's heuristic
+# misdetects it as text; CRLF conversion would invalidate its xref offsets.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.gif   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary

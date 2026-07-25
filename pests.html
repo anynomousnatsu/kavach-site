@@ -12,8 +12,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/main.css">
 <script type="application/ld+json">
 {
@@ -34,10 +33,7 @@
 
 <header class="site-header">
   <div class="container">
-    <a class="logo" href="/">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 5.5V11c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5.5L12 2Z" stroke="#101E26" stroke-width="1.6" fill="none"/></svg>
-      KAVACH
-    </a>
+    <a class="logo" href="/"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 5.5V11c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5.5L12 2Z" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>KAVACH</a>
     <nav class="main-nav" aria-label="Main">
       <ul>
         <li><a href="/kitchen-shield.html">Restaurants</a></li>
@@ -58,14 +54,14 @@
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
     <ul>
-      <li><a href="/kitchen-shield.html">Restaurants</a></li>
-      <li><a href="/room-shield.html">Hotels</a></li>
-      <li><a href="/home-shield.html">Home</a></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/the-record.html">The Record</a></li>
-      <li><a href="/pests.html">Pests</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/kitchen-shield.html">Restaurants</a></li>
+        <li><a href="/room-shield.html">Hotels</a></li>
+        <li><a href="/home-shield.html">Home</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/the-record.html">The Record</a></li>
+        <li><a href="/pests.html" aria-current="page">Pests</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
     </ul>
     <div class="mobile-cta">
       <a class="btn btn-primary" href="/contact.html">Book a Free Inspection</a>
@@ -79,7 +75,7 @@
   <section class="hero" style="padding-bottom:32px">
     <div class="container grid grid-12">
       <div class="col-8">
-        <p class="label">Pest Library · Kathmandu Valley</p>
+        <p class="eyebrow">Pest Library · Kathmandu Valley</p>
         <h1>Know what you're looking at.</h1>
         <p class="lead">Every pest we treat in the Valley — the signs, the real risk for your kind of premises, our protocol, and how long control takes. Filter by where you work.</p>
       </div>
@@ -88,6 +84,11 @@
 
   <section style="padding-top:32px">
     <div class="container">
+      <div class="section-head">
+        <span class="idx">[SEC-01] Pest Library</span>
+        <h2>Thirteen pests. Filter by where you work.</h2>
+        <p>Signs, the real risk for your premises type, our protocol, and how long control actually takes.</p>
+      </div>
       <div class="filter-chips" role="group" aria-label="Filter pests by premises">
         <button data-filter="all" aria-pressed="true">All</button>
         <button data-filter="restaurants" aria-pressed="false">Restaurants</button>
@@ -297,12 +298,17 @@
   <div class="container">
     <div class="footer-cols">
       <div>
-        <h4>Services</h4>
+        <span class="foot-brand">KAVACH</span>
+        <p>Nepal's evidence-based pest management firm. Every visit logged, every trap mapped, every chemical accounted for.</p>
+        <p class="deva mt-16" style="color:var(--muted-fg)">कवच पेस्ट म्यानेजमेन्ट प्रा. लि.</p>
+      </div>
+      <div>
+        <h4>Programmes</h4>
         <ul>
-          <li><a href="/kitchen-shield.html">Kitchen Shield — Restaurants</a></li>
-          <li><a href="/room-shield.html">Room Shield — Hotels</a></li>
-          <li><a href="/store-shield.html">Store Shield — Warehouses</a></li>
-          <li><a href="/home-shield.html">Home Shield — Residential</a></li>
+          <li><a href="/kitchen-shield.html">Kitchen Shield</a></li>
+          <li><a href="/room-shield.html">Room Shield</a></li>
+          <li><a href="/store-shield.html">Store Shield</a></li>
+          <li><a href="/home-shield.html">Home Shield</a></li>
           <li><a href="/treatments.html">One-off Treatments</a></li>
           <li><a href="/pricing.html">Pricing</a></li>
         </ul>
@@ -318,32 +324,21 @@
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4>Headquarters</h4>
         <ul>
-          <li><a href="tel:+9779818499308">981-8499308</a></li>
+          <li>Chabahil, Kathmandu 44600<br>Nepal</li>
+          <li><a href="tel:+9779818499308">+977 981-8499308</a></li>
           <li><a href="https://wa.me/9779818499308">WhatsApp</a> · <a href="viber://chat?number=%2B9779818499308">Viber</a></li>
           <li><a href="mailto:grish@kavach.com.np">grish@kavach.com.np</a></li>
-          <li>Chabahil, Kathmandu</li>
-          <li class="mono">Office SUN–FRI 09:00–18:00</li>
+          <li class="mono" style="margin-top:16px">Office SUN–FRI 09:00–18:00</li>
           <li class="mono">Service EVERY NIGHT 22:00–05:00</li>
           <li class="mono">Emergency 24 HRS</li>
         </ul>
       </div>
-      <div>
-        <h4>On Record</h4>
-        <ul>
-          <li class="mono">Kavach Pest Management Pvt. Ltd.</li>
-          <li class="mono">Reg. No. 000000/082/083</li>
-          <li class="mono">PAN 000000000</li>
-          <li class="mono">Pesticides sourced from licensed importers only</li>
-          <li class="mono">Serving Kathmandu · Lalitpur · Bhaktapur</li>
-        </ul>
-      </div>
     </div>
     <div class="footer-meta">
-      <span>© 2026 Kavach Pest Management Pvt. Ltd.</span>
-      <span>Every visit, on record.</span>
-      <span>सफा भान्सा, लिखित प्रमाण।</span>
+      <span>© 2026 Kavach Pest Management Pvt. Ltd. · Reg. 000000/082/083 · PAN 000000000</span>
+      <span>DFTQC-aligned protocols · Kathmandu · Lalitpur · Bhaktapur</span>
     </div>
   </div>
 </footer>

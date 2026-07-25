@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="Commercial kitchen at night with numbered bait stations at the range line, drain and dry store">
+  <title>Kitchen Shield — commercial kitchen serviced during the night window</title>
+  <rect width="640" height="440" fill="#F2F5F8"/>
+
+  <!-- night sky through window -->
+  <rect x="440" y="40" width="160" height="110" fill="#091123"/>
+  <circle cx="570" cy="70" r="10" fill="#FDF2E4" opacity=".9"/>
+  <g fill="#FFFFFF" opacity=".5">
+    <circle cx="470" cy="66" r="1.6"/><circle cx="500" cy="90" r="1.3"/><circle cx="536" cy="58" r="1.4"/>
+    <circle cx="488" cy="122" r="1.2"/><circle cx="556" cy="118" r="1.5"/><circle cx="520" cy="132" r="1.1"/>
+  </g>
+  <rect x="440" y="40" width="160" height="110" fill="none" stroke="#091123" stroke-width="2"/>
+  <line x1="520" y1="40" x2="520" y2="150" stroke="#091123" stroke-width="2"/>
+  <text x="440" y="170" font-family="JetBrains Mono, monospace" font-size="10" fill="#586475" letter-spacing="1">23:40 · KITCHEN CLOSED</text>
+
+  <!-- floor line -->
+  <line x1="0" y1="356" x2="640" y2="356" stroke="#091123" stroke-width="2"/>
+
+  <!-- extraction hood -->
+  <path d="M60 40 L260 40 L232 96 L88 96 Z" fill="#FFFFFF" stroke="#091123" stroke-width="2"/>
+  <line x1="88" y1="96" x2="232" y2="96" stroke="#091123" stroke-width="2"/>
+  <text x="118" y="72" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">EXTRACTION</text>
+
+  <!-- range line -->
+  <rect x="70" y="200" width="180" height="156" fill="#FFFFFF" stroke="#091123" stroke-width="2"/>
+  <rect x="70" y="200" width="180" height="26" fill="#DDE2E8" stroke="#091123" stroke-width="2"/>
+  <g fill="none" stroke="#586475" stroke-width="1.6">
+    <circle cx="106" cy="213" r="7"/><circle cx="142" cy="213" r="7"/><circle cx="178" cy="213" r="7"/><circle cx="214" cy="213" r="7"/>
+  </g>
+  <line x1="70" y1="280" x2="250" y2="280" stroke="#091123" stroke-width="1.4"/>
+  <line x1="70" y1="320" x2="250" y2="320" stroke="#091123" stroke-width="1.4"/>
+  <text x="86" y="268" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">RANGE LINE</text>
+  <!-- gap behind range, treated -->
+  <rect x="250" y="200" width="10" height="156" fill="#FDF2E4" stroke="#D37300" stroke-width="1.6" stroke-dasharray="4 3"/>
+
+  <!-- prep counter -->
+  <rect x="300" y="240" width="170" height="116" fill="#FFFFFF" stroke="#091123" stroke-width="2"/>
+  <rect x="300" y="240" width="170" height="14" fill="#DDE2E8" stroke="#091123" stroke-width="2"/>
+  <line x1="300" y1="292" x2="470" y2="292" stroke="#091123" stroke-width="1.4"/>
+  <line x1="300" y1="326" x2="470" y2="326" stroke="#091123" stroke-width="1.4"/>
+  <circle cx="385" cy="309" r="3" fill="#586475"/>
+  <circle cx="385" cy="343" r="3" fill="#586475"/>
+  <text x="316" y="278" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">PREP DRAWERS</text>
+
+  <!-- dry store shelving -->
+  <rect x="514" y="200" width="96" height="156" fill="#FFFFFF" stroke="#091123" stroke-width="2"/>
+  <line x1="514" y1="244" x2="610" y2="244" stroke="#091123" stroke-width="1.4"/>
+  <line x1="514" y1="292" x2="610" y2="292" stroke="#091123" stroke-width="1.4"/>
+  <line x1="514" y1="330" x2="610" y2="330" stroke="#091123" stroke-width="1.4"/>
+  <g fill="#DDE2E8" stroke="#586475" stroke-width="1.2">
+    <rect x="524" y="216" width="30" height="26"/><rect x="560" y="216" width="30" height="26"/>
+    <rect x="524" y="262" width="30" height="28"/><rect x="562" y="264" width="28" height="26"/>
+  </g>
+  <text x="514" y="192" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">DRY STORE</text>
+
+  <!-- floor drain -->
+  <rect x="286" y="362" width="56" height="12" fill="#DDE2E8" stroke="#091123" stroke-width="1.6"/>
+  <g stroke="#091123" stroke-width="1.2">
+    <line x1="298" y1="362" x2="298" y2="374"/><line x1="312" y1="362" x2="312" y2="374"/><line x1="326" y1="362" x2="326" y2="374"/>
+  </g>
+
+  <!-- numbered stations -->
+  <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">
+    <g><circle cx="96" cy="340" r="14" fill="#173796"/><text x="96" y="344" text-anchor="middle" fill="#FFFFFF">1</text></g>
+    <g><circle cx="385" cy="309" r="14" fill="#173796"/><text x="385" y="313" text-anchor="middle" fill="#FFFFFF">2</text></g>
+    <g><circle cx="314" cy="368" r="14" fill="#D37300"/><text x="314" y="372" text-anchor="middle" fill="#FFFFFF">3</text></g>
+    <g><circle cx="562" cy="312" r="14" fill="#173796"/><text x="562" y="316" text-anchor="middle" fill="#FFFFFF">4</text></g>
+    <g><circle cx="255" cy="230" r="14" fill="#D37300"/><text x="255" y="234" text-anchor="middle" fill="#FFFFFF">5</text></g>
+  </g>
+
+  <!-- caption strip -->
+  <rect x="0" y="398" width="640" height="42" fill="#173796"/>
+  <text x="24" y="424" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFFFFF" letter-spacing="1.4">5 MAPPED STATIONS · GEL BAIT · DRAIN FOAM · 22:00–05:00</text>
+</svg>

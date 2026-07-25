@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-label="Cutaway of an apartment showing kitchen, bathroom and balcony treatment points">
+  <title>Home Shield — residential annual programme, four visits a year</title>
+  <rect width="640" height="440" fill="#F2F5F8"/>
+
+  <!-- building outline -->
+  <path d="M80 120 L320 40 L560 120" fill="none" stroke="#091123" stroke-width="2"/>
+  <rect x="110" y="120" width="420" height="232" fill="#FFFFFF" stroke="#091123" stroke-width="2"/>
+
+  <!-- internal division -->
+  <line x1="320" y1="120" x2="320" y2="352" stroke="#091123" stroke-width="2"/>
+  <line x1="110" y1="240" x2="530" y2="240" stroke="#091123" stroke-width="2"/>
+
+  <!-- kitchen (top left) -->
+  <text x="126" y="142" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">KITCHEN</text>
+  <rect x="126" y="188" width="92" height="46" fill="#DDE2E8" stroke="#091123" stroke-width="1.6"/>
+  <line x1="126" y1="212" x2="218" y2="212" stroke="#091123" stroke-width="1.2"/>
+  <rect x="236" y="164" width="62" height="70" fill="#F7FAFD" stroke="#091123" stroke-width="1.6"/>
+  <line x1="236" y1="196" x2="298" y2="196" stroke="#091123" stroke-width="1.2"/>
+  <text x="240" y="158" font-family="JetBrains Mono, monospace" font-size="8" fill="#586475">FRIDGE</text>
+
+  <!-- bathroom (top right) -->
+  <text x="336" y="142" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">BATHROOM</text>
+  <rect x="336" y="180" width="56" height="54" rx="6" fill="#F7FAFD" stroke="#091123" stroke-width="1.6"/>
+  <circle cx="364" cy="207" r="7" fill="none" stroke="#586475" stroke-width="1.4"/>
+  <!-- drain flagged -->
+  <rect x="416" y="214" width="40" height="10" fill="#FDF2E4" stroke="#D37300" stroke-width="1.6"/>
+  <g stroke="#D37300" stroke-width="1.1">
+    <line x1="426" y1="214" x2="426" y2="224"/><line x1="436" y1="214" x2="436" y2="224"/><line x1="446" y1="214" x2="446" y2="224"/>
+  </g>
+  <text x="410" y="208" font-family="JetBrains Mono, monospace" font-size="8" fill="#D37300">DRAIN</text>
+
+  <!-- living (bottom left) -->
+  <text x="126" y="262" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">LIVING</text>
+  <rect x="126" y="296" width="120" height="42" rx="5" fill="#DDE2E8" stroke="#091123" stroke-width="1.6"/>
+  <line x1="126" y1="314" x2="246" y2="314" stroke="#091123" stroke-width="1.2"/>
+
+  <!-- bedroom (bottom right) -->
+  <text x="336" y="262" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">BEDROOM</text>
+  <rect x="336" y="288" width="110" height="50" rx="4" fill="#F7FAFD" stroke="#091123" stroke-width="1.6"/>
+  <rect x="336" y="288" width="110" height="14" rx="4" fill="#DDE2E8" stroke="#091123" stroke-width="1.4"/>
+
+  <!-- balcony / entry gap -->
+  <rect x="466" y="288" width="58" height="50" fill="none" stroke="#091123" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="470" y="282" font-family="JetBrains Mono, monospace" font-size="8" fill="#586475">BALCONY</text>
+
+  <!-- treatment points -->
+  <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">
+    <g><circle cx="172" cy="211" r="13" fill="#173796"/><text x="172" y="215" text-anchor="middle" fill="#FFFFFF">1</text></g>
+    <g><circle cx="436" cy="219" r="13" fill="#D37300"/><text x="436" y="223" text-anchor="middle" fill="#FFFFFF">2</text></g>
+    <g><circle cx="391" cy="313" r="13" fill="#173796"/><text x="391" y="317" text-anchor="middle" fill="#FFFFFF">3</text></g>
+    <g><circle cx="495" cy="313" r="13" fill="#173796"/><text x="495" y="317" text-anchor="middle" fill="#FFFFFF">4</text></g>
+  </g>
+
+  <!-- four-visit calendar -->
+  <g>
+    <rect x="34" y="120" width="52" height="52" rx="3" fill="#FFFFFF" stroke="#091123" stroke-width="1.8"/>
+    <rect x="34" y="120" width="52" height="14" fill="#173796"/>
+    <g fill="#173796"><circle cx="47" cy="146" r="4"/><circle cx="73" cy="146" r="4"/><circle cx="47" cy="160" r="4"/><circle cx="73" cy="160" r="4"/></g>
+    <text x="34" y="186" font-family="JetBrains Mono, monospace" font-size="9" fill="#586475" letter-spacing="1">4 / YR</text>
+  </g>
+
+  <line x1="0" y1="352" x2="640" y2="352" stroke="#091123" stroke-width="2"/>
+
+  <rect x="0" y="398" width="640" height="42" fill="#173796"/>
+  <text x="24" y="424" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFFFFF" letter-spacing="1.4">4 VISITS / YEAR · UNLIMITED CALLBACKS · KID &amp; PET-SAFE</text>
+</svg>

@@ -1,7 +1,15 @@
-<!-- SOURCE OF TRUTH — copy into every page. Add aria-current="page" to the active nav item. -->
+<!-- Shared chunk. Kept in sync by hand: every page carries an identical copy.
+     Edit here, then paste into index / services / pricing / about / contact / 404 / thank-you. -->
 <header class="site-header">
   <div class="container">
-    <a class="logo" href="/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5.5V11c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5.5L12 2Z"/></svg>KAVACH</a>
+    <a class="logo" href="/">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16 2.5 4.5 7v9.2C4.5 23.3 9.4 28.6 16 30.5c6.6-1.9 11.5-7.2 11.5-14.3V7L16 2.5Z" fill="#C5F24C" stroke="#0B0B0B" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="m11 16.2 3.3 3.3L21.5 12" fill="none" stroke="#0B0B0B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Kavach
+    </a>
+
     <nav class="main-nav" aria-label="Main">
       <ul>
         <li><a href="/services.html">Services</a></li>
@@ -10,23 +18,31 @@
         <li><a href="/contact.html">Contact</a></li>
       </ul>
     </nav>
+
     <div class="header-actions">
-      <div class="night-indicator"><span class="dot"></span><span class="ni-text">Next night shift 22:00 NPT</span></div>
+      <span class="night-pill"><span class="dot"></span><span class="np-text">Next night shift 22:00 NPT</span></span>
       <a class="header-phone" href="tel:+9779818499308">981-8499308</a>
-      <a class="btn btn-primary btn-sm" href="/contact.html">Request Quote</a>
+      <a class="circ" href="https://wa.me/9779818499308?text=Hi%20Kavach%2C%20I%27d%20like%20a%20quote." aria-label="Message Kavach on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.8 9.2c.3-.7.6-.7.9-.7h.7c.2 0 .5 0 .7.6l.8 1.9c.1.3 0 .5-.1.7l-.4.5c-.1.2-.3.3-.1.6a7 7 0 0 0 3 2.5c.3.1.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.3.4.5a2 2 0 0 1-1.4 1.8 3.6 3.6 0 0 1-2.4-.2 11 11 0 0 1-5.6-5.2 3.9 3.9 0 0 1-.2-3Z"/></svg>
+      </a>
+      <a class="btn btn--lime btn--sm" href="/contact.html">Contact Us</a>
     </div>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="mt-label">Menu</span>
+    </button>
   </div>
+
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
     <ul>
-        <li><a href="/services.html">Services</a></li>
-        <li><a href="/pricing.html">Pricing</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
     </ul>
     <div class="mobile-cta">
-      <a class="btn btn-primary" href="/contact.html">Request a Quote</a>
-      <a class="btn btn-secondary" href="tel:+9779818499308">Call 981-8499308</a>
+      <a class="btn btn--lime btn--block" href="/contact.html">Request a Quote</a>
+      <a class="btn btn--ghost btn--block" href="tel:+9779818499308">Call 981-8499308</a>
     </div>
   </nav>
 </header>

@@ -8,7 +8,7 @@ Static 5-page site. Plain HTML/CSS/JS — no framework, no build step, no backen
 
 | File | URL | Content |
 |---|---|---|
-| `index.html` | `/` | Hero, fixed-price bar, work grid, stat rows, four pricing plans, feature banner, testimonials, CTA |
+| `index.html` | `/` | Hero, fixed-price bar, work grid, stat rows, four pricing plans, feature banner, FAQ, CTA |
 | `services.html` | `/services` | `[MOD-01]` four Shield programmes with full spec lists · ten one-off treatments |
 | `pricing.html` | `/pricing` | `[MOD-03]` Kitchen Shield tier table, other programme rates, the guarantee |
 | `about.html` | `/about` | `[MOD-04]` why we exist, four operating rules, what we don't do |
@@ -101,6 +101,7 @@ markup change, no layout shift.
 | `feature-night.jpg` | 16:9 | Two technicians working a closed restaurant |
 | `team-portrait.jpg` | 3:4 | The night crew |
 | `footer-kit.png` | 3:1, transparent | Equipment line-up under the footer wordmark |
+| `og-card.jpg` | 1200×630 | Social share card, composed from `feature-night.jpg` |
 
 `proof-logbook` and `proof-certificate` ship at 400×400 — they render into a 150px slot,
 so the original 800×800 was carrying four times the pixels it could ever show.
@@ -112,13 +113,68 @@ Icons are inline SVG on a shared spec: `fill="none" stroke="currentColor"
 stroke-width="1.7"`, round caps and joins, 24×24 viewBox. They inherit `currentColor`,
 so they recolour automatically inside lime and black panels.
 
+## SEO
+
+**Live domain is `kavachpest.com`.** Everything — canonicals, `og:url`, the sitemap,
+`robots.txt`, the form redirect and the support mailbox — points there. `kavach.com.np`
+was never registered; if you do register it later, 301 it to `kavachpest.com` rather than
+serving both, or you split your own ranking signal in half.
+
+Cloudflare serves clean URLs and 301s `/x.html` to `/x`, so canonicals are extensionless.
+Internal links keep the `.html` suffix and ride that redirect — harmless on a 7-page site.
+
+**In place on every page:** keyword-first `<title>` (39–53 chars), `<meta description>`
+(85–157 chars, inside Google's truncation point), `keywords`, explicit `robots`,
+canonical, `geo.*` + `ICBM`, full Open Graph and Twitter card pointing at
+`assets/img/og-card.jpg` (1200×630), and `lang="en-NP"`.
+
+**Structured data** (JSON-LD, one `@graph` per page):
+
+| Type | Where | Earns |
+|---|---|---|
+| `PestControlService` | every page | local pack, knowledge panel, hours, service area |
+| `OfferCatalog` + `Offer` | home | price visibility for the four programmes |
+| `Service` ×4 | services | per-service eligibility |
+| `FAQPage` | home | FAQ rich results on the SERP |
+| `BreadcrumbList` | inner pages | breadcrumb trail under the result |
+| `WebSite` | home | site name handling |
+
+**After deploying, do these three things** — the markup alone will not rank you:
+
+1. **Google Search Console** — add `kavachpest.com`, verify, submit
+   `https://kavachpest.com/sitemap.xml`, then *Request indexing* on the homepage.
+2. **Google Business Profile** — this is the single biggest lever for "pest control
+   Kathmandu". The local pack outranks organic results for that query and you cannot
+   enter it without a verified profile. Category: *Pest Control Service*. Use the exact
+   same name, address and phone as the footer — they have to match character for
+   character.
+3. **Real reviews** on that profile. Ask every contracted client after their third
+   service.
+
+**One thing to correct:** the `geo` coordinates in the JSON-LD and the `geo.position`
+meta are the approximate centre of Chabahil (`27.7189, 85.3450`), not your door. Drop
+your real pin from Google Maps in, or Google may place you a few hundred metres off.
+
+## Testimonials
+
+The homepage has no testimonial section. It previously held clearly-badged placeholders;
+those are gone, and an FAQ section took the slot — which is worth more anyway, since it
+feeds `FAQPage` rich results and covers long-tail queries like "how much does pest
+control cost in Kathmandu".
+
+`_snippets/testimonials.html` has the carousel ready to paste back above the CTA section
+whenever you have real quotes; the CSS and carousel JS are still in place. Use it only
+with words a client actually said and agreed to publish. Testimonials invented and
+attributed to a named business are illegal in most markets, trivially disproved by a
+phone call, and exactly what a competitor reports.
+
 ## Deploy to Cloudflare Pages
 
 1. Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
 2. Pick the `kavach-site` repo
 3. Framework preset **None**, build command **blank**, output directory `/`
 4. **Save and Deploy** → a `*.pages.dev` URL in about a minute
-5. Add `kavach.com.np` under **Custom domains** once the `.com.np` registration is approved
+5. Add `kavachpest.com` under **Custom domains** once the `.com.np` registration is approved
 
 Every push to `main` redeploys. Cloudflare serves clean URLs, so `/pricing.html`
 redirects to `/pricing` — matching the canonical tags and `sitemap.xml`.
@@ -127,15 +183,13 @@ redirects to `/pricing` — matching the canonical tags and `sitemap.xml`.
 
 1. ~~**Phone number**~~ — done (981-8499308)
 2. ~~**The ten photographs**~~ — done, WebP generated, `<picture>` wired up.
-3. **Testimonials** — `index.html` ships four clearly-marked placeholder quote cards
-   with a visible "Placeholder" badge. **Replace them with real, permissioned client
-   quotes or delete the section.** Do not publish invented testimonials.
+3. ~~**Testimonials**~~ — placeholders removed; FAQ section took the slot.
 4. **Web3Forms key** — `YOUR-ACCESS-KEY` in `contact.html`. **Until this is set the form
    delivers nowhere.** Free key at web3forms.com. Confirm the `redirect` URL after the
    domain is live.
 5. **Address** — footer and contact page say "Chabahil, Ward 7, Kathmandu 44600".
    Confirm the real office.
-6. **Email** — `operations@kavach.com.np` needs a real mailbox (Zoho Mail free tier).
+6. **Email** — `operations@kavachpest.com` needs a real mailbox (Zoho Mail free tier).
 7. **Registration + PAN** — not currently shown anywhere. Add to the footer once the
    Pvt. Ltd. certificate lands; it is a genuine trust signal for a Nepali B2B buyer.
 8. **Fonts** — loaded from Google Fonts. For production, self-host WOFF2 in
@@ -151,7 +205,11 @@ redirects to `/pricing` — matching the canonical tags and `sitemap.xml`.
 - [x] Every image has descriptive alt text; missing files degrade to labelled tiles
 - [x] Ten photographs in place, all at exact aspect ratio (zero crop)
 - [x] Photographs optimised — WebP via `<picture>`, 35% lighter, oversized pair downsized
-- [ ] Placeholder testimonials replaced with real quotes — or the section removed
+- [x] Placeholder testimonials removed — FAQ section in their place
+- [x] SEO: live domain everywhere, structured data, OG card, sitemap
+- [ ] Google Search Console verified + sitemap submitted
+- [ ] Google Business Profile created and verified
+- [ ] Exact office coordinates replacing the Chabahil approximation
 - [ ] Form delivers to your inbox — test 3×, including from mobile
 - [ ] WhatsApp and Viber deep links tested on a real Android phone
 - [ ] Lighthouse mobile performance 90+

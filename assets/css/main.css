@@ -835,8 +835,8 @@ h1 em, h2 em, .h1 em, .h2 em {
 }
 
 /* ---- 13. Testimonials -------------------------------------------------- */
-.quotes-head { display: grid; gap: 24px; align-items: start; }
-@media (min-width: 980px) { .quotes-head { grid-template-columns: minmax(230px, 300px) 1fr; gap: 48px; } }
+.aside-split { display: grid; gap: 24px; align-items: start; }
+@media (min-width: 980px) { .aside-split { grid-template-columns: minmax(230px, 330px) 1fr; gap: 56px; } }
 
 .quotes-nav { display: flex; align-items: center; gap: 14px; margin-top: 26px; }
 .quotes-nav .count {
@@ -921,6 +921,45 @@ h1 em, h2 em, .h1 em, .h2 em {
   text-transform: uppercase;
   color: var(--ink);
 }
+
+/* ---- 13b. FAQ ---------------------------------------------------------- */
+.faq { border-top: 1px solid var(--line-2); }
+.faq__item { border-bottom: 1px solid var(--line-2); }
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary:hover { color: var(--lime-d); }
+.faq__mark {
+  position: relative;
+  width: 28px; height: 28px; flex: 0 0 28px;
+  border-radius: 50%;
+  background: var(--lime);
+}
+.faq__mark::before, .faq__mark::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  background: var(--on-lime);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+.faq__mark::before { width: 12px; height: 2px; }
+.faq__mark::after  { width: 2px; height: 12px; transition: transform .2s ease; }
+.faq__item[open] .faq__mark::after { transform: translate(-50%, -50%) scaleY(0); }
+.faq__a { padding-bottom: 22px; font-size: 0.94rem; color: var(--ink-2); max-width: 70ch; }
+@media (prefers-reduced-motion: reduce) { .faq__mark::after { transition: none; } }
 
 /* ---- 14. Generic content blocks --------------------------------------- */
 .cards { display: grid; gap: 18px; }

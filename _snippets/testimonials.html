@@ -1,0 +1,38 @@
+<!-- Testimonial carousel — ready to drop back into index.html, above the CTA section.
+     The CSS (.quotes-track, .quote-card, .quotes-nav) and the carousel JS in
+     site.js are still in place, so this works as-is once you fill it in.
+
+     Use it ONLY with real quotes you have permission to publish. Ask a client
+     after their third service, get it in writing (WhatsApp is fine), and use
+     their actual words, name and business. Invented testimonials attributed to
+     named businesses are illegal in most markets and are the kind of thing a
+     competitor reports. -->
+<section class="band--soft reveal">
+  <div class="container">
+    <div class="aside-split">
+      <div>
+        <h2>What<br><em>They</em> Say</h2>
+        <div class="quotes-nav">
+          <button class="circ circ--sm" type="button" data-quotes="prev" aria-label="Previous testimonials">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </button>
+          <button class="circ circ--sm" type="button" data-quotes="next" aria-label="Next testimonials">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <span class="count" data-quotes="count" aria-live="polite">1 / 1</span>
+        </div>
+      </div>
+      <div class="quotes-track" tabindex="0" aria-label="Client testimonials">
+        <blockquote class="quote-card">
+          <span class="quote-card__mark" aria-hidden="true">&ldquo;</span>
+          <p>THEIR ACTUAL WORDS HERE.</p>
+          <footer>
+            <span class="avatar" aria-hidden="true">01</span>
+            <span><span class="who">Their name</span><br><span class="where">Their business · Area</span></span>
+          </footer>
+        </blockquote>
+        <!-- repeat .quote-card per real quote -->
+      </div>
+    </div>
+  </div>
+</section>

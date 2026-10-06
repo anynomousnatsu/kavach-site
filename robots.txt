@@ -1,7 +1,6 @@
+# Search engines, AI search and AI training crawlers are all welcome.
+# thank-you and 404 carry a noindex tag instead of a Disallow, so crawlers can see it.
 User-agent: *
 Allow: /
-Disallow: /thank-you
-Disallow: /thank-you.html
-Disallow: /_snippets/
 
 Sitemap: https://kavachpest.com/sitemap.xml

@@ -1,0 +1,13 @@
+// Cloudflare Workers static-assets config. The Worker name matches the one
+// Cloudflare generated for this repo (branch cloudflare/workers-autoconfig).
+// .assetsignore keeps the repo's internal files (.git, README, scripts) off
+// the public site; not_found_handling serves 404.html with a 404 status.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kavach-site",
+  "compatibility_date": "2026-07-25",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}

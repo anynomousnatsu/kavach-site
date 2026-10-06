@@ -1,0 +1,13 @@
+# Never publish repository internals. Syntax is the same as .gitignore.
+.git
+.github
+.claude
+.gitignore
+.gitattributes
+.assetsignore
+wrangler.jsonc
+_snippets
+tools
+node_modules
+*.md
+*.py

@@ -1,5 +1,6 @@
-/* site.js — mobile nav, night-shift pill, photo fallbacks,
-   testimonial carousel, reveal-on-scroll, quote-bar prefill. */
+/* site.js — mobile nav, service-hours pill, photo fallbacks,
+   testimonial carousel, reveal-on-scroll, quote-bar prefill,
+   WhatsApp quote form. */
 (function () {
   'use strict';
 
@@ -16,7 +17,7 @@
     });
   }
 
-  /* ---- Night-shift pill — reads Nepal Time (UTC+5:45) ------------------ */
+  /* ---- Service-hours pill — reads Nepal Time (UTC+5:45), open 05–21 ---- */
   function updatePill() {
     var els = document.querySelectorAll('.night-pill');
     if (!els.length) return;
@@ -27,14 +28,14 @@
     var m = nptMin % 60;
     var hh = (h < 10 ? '0' : '') + h;
     var mm = (m < 10 ? '0' : '') + m;
-    var live = (h >= 22 || h < 5);
+    var live = (h >= 5 && h < 21);
     Array.prototype.forEach.call(els, function (el) {
       el.classList.toggle('is-live', live);
       var txt = el.querySelector('.np-text');
       if (txt) {
         txt.textContent = live
-          ? 'Servicing now · ' + hh + ':' + mm + ' NPT'
-          : 'Next night shift 22:00 NPT';
+          ? 'Open now · ' + hh + ':' + mm + ' NPT'
+          : 'Back at 05:00 NPT';
       }
     });
   }
@@ -88,6 +89,28 @@
     var el = document.querySelector('[name="' + key + '"]');
     if (el) el.value = val;
   });
+
+  /* ---- Quote form → WhatsApp -------------------------------------------
+     There is no form backend: the form composes a WhatsApp message to the
+     business number and opens it. Nothing is sent until the visitor presses
+     send in WhatsApp. Without JS the form still opens the chat. */
+  var quote = document.getElementById('quote-form');
+  if (quote) {
+    quote.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = quote.elements;
+      var lines = ['Quote request from kavachpest.com'];
+      [['facility_type', 'Facility'], ['area_sqft', 'Area'], ['name', 'Name'],
+       ['location', 'Location'], ['notes', 'Notes']].forEach(function (pair) {
+        var el = f[pair[0]];
+        var v = el && el.value.trim();
+        if (v) lines.push(pair[1] + ': ' + v);
+      });
+      var url = 'https://wa.me/' + quote.getAttribute('data-wa') +
+                '?text=' + encodeURIComponent(lines.join('\n'));
+      window.location.href = url;
+    });
+  }
 
   /* ---- Reveal on scroll ------------------------------------------------- */
   var reveals = document.querySelectorAll('.reveal');

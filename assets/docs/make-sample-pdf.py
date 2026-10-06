@@ -1,52 +1,75 @@
-"""Generate a minimal valid one-page sample service record PDF (pure stdlib)."""
+"""Generate the public sample service record: a labelled BLANK TEMPLATE (pure stdlib).
+
+It deliberately holds no client, technician or result data, so nothing on it can be
+mistaken for a real job. Run from anywhere; it writes next to this script.
+"""
 import os
 
+CALLBACK = ("If pests come back within 48 hours of a scheduled service, tell us and we return "
+            "to re-treat at no charge.")
+
 LINES = [
-    ("Helvetica-Bold", 16, "KAVACH PEST MANAGEMENT PVT. LTD."),
-    ("Helvetica", 10, "Every visit, on record.  |  981-8499308  |  kavach.com.np"),
+    ("Helvetica-Bold", 16, "KAVACH PEST MANAGEMENT"),
+    ("Helvetica", 10, "Every visit, on record.  |  WhatsApp +977 981-8499308  |  kavachpest.com"),
     ("Helvetica", 10, ""),
-    ("Helvetica-Bold", 12, "SAMPLE MONTHLY SERVICE RECORD"),
-    ("Helvetica", 10, "Client: Thamel Kitchen (sample) | 1,850 sq ft | Kitchen Shield M | Since 2026-02"),
+    ("Helvetica-Bold", 13, "SAMPLE SERVICE RECORD - BLANK TEMPLATE"),
+    ("Helvetica", 9, "This is a blank example of the record we leave after every visit. It contains no client data."),
     ("Helvetica", 10, ""),
-    ("Helvetica-Bold", 11, "VISIT LOG - 2026-07-12"),
-    ("Helvetica", 10, "In/Out: 23:30 - 01:20 | Technician: R. Tamang | Duration: 1h 50m"),
-    ("Helvetica", 10, "Areas: kitchen, dry store, drains, back lane | Status: CLEAR"),
-    ("Helvetica", 10, "All 14 stations checked. Gel refreshed at stations 02, 07. Drains foamed."),
+    ("Helvetica-Bold", 11, "VISIT"),
+    ("Helvetica", 10, "Client / site: ______________________   Programme: ______________   Visit no.: _____"),
+    ("Helvetica", 10, "Date: ____________   Time in: _______   Time out: _______   Technician: ______________"),
+    ("Helvetica", 10, ""),
+    ("Helvetica-Bold", 11, "AREAS INSPECTED"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
+    ("Helvetica", 10, ""),
+    ("Helvetica-Bold", 11, "FINDINGS  (pest | location | activity: none / low / medium / high)"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
+    ("Helvetica", 10, ""),
+    ("Helvetica-Bold", 11, "WORK DONE"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
     ("Helvetica", 10, ""),
     ("Helvetica-Bold", 11, "PRODUCTS USED"),
-    ("Helvetica", 10, "Cockroach gel bait | Fipronil 0.05% | Batch FG-2604-118 | 6 g | No re-entry"),
-    ("Helvetica", 10, "Residual concentrate | Imidacloprid 30.5% SC | Batch IM-2603-077 | 4 hr re-entry"),
-    ("Helvetica", 10, "Drain foam | Bio-enzymatic | Batch DF-2606-021 | 120 ml | 1 hr re-entry"),
-    ("Helvetica", 10, "Rodenticide blocks | Bromadiolone 0.005% | Batch BR-2601-431 | stations 12, 13"),
+    ("Helvetica", 9, "Product | Active ingredient | Batch no. | Quantity | Area can be used again from"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
     ("Helvetica", 10, ""),
-    ("Helvetica-Bold", 11, "ACTIVITY INDEX"),
-    ("Helvetica", 10, "FEB 100 (baseline) | MAR 70 | APR 40 | MAY 55 | JUN 30 | JUL 22"),
-    ("Helvetica", 10, "Activity down 78% since programme start."),
+    ("Helvetica-Bold", 11, "BAIT STATIONS CHECKED"),
+    ("Helvetica", 9, "Station no. | Condition | Activity | Action taken"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
     ("Helvetica", 10, ""),
-    ("Helvetica-Bold", 11, "GUARANTEE"),
-    ("Helvetica", 10, "Unlimited callbacks within 48 hours, free, in writing. Night service included."),
+    ("Helvetica-Bold", 11, "RECOMMENDATIONS FOR THE SITE  (proofing, hygiene, storage)"),
+    ("Helvetica", 10, "__________________________________________________________________________"),
     ("Helvetica", 10, ""),
-    ("Helvetica", 8, "This is a sample document with fictional client data, illustrating the record"),
-    ("Helvetica", 8, "every Kavach client receives monthly. Ask your current provider for theirs."),
+    ("Helvetica-Bold", 11, "NEXT VISIT"),
+    ("Helvetica", 10, "Date: ____________   Time: _______"),
+    ("Helvetica", 10, ""),
+    ("Helvetica-Bold", 11, "CALLBACK TERMS"),
+    ("Helvetica", 9, CALLBACK),
+    ("Helvetica", 10, ""),
+    ("Helvetica", 10, "Technician signature: ______________        Client signature: ______________"),
+    ("Helvetica", 10, ""),
+    ("Helvetica", 8, "A Kavach service record or certificate is not a government approval."),
 ]
 
 content = ["BT"]
-y = 780
+y = 790
 for font, size, text in LINES:
     fkey = "/F1" if font == "Helvetica" else "/F2"
     text = text.replace("\\", r"\\").replace("(", r"\(").replace(")", r"\)")
-    content.append(f"{fkey} {size} Tf 1 0 0 1 60 {y} Tm ({text}) Tj")
-    y -= size + 8
+    content.append(f"{fkey} {size} Tf 1 0 0 1 50 {y} Tm ({text}) Tj")
+    y -= size + 7
 content.append("ET")
 stream = "\n".join(content).encode("latin-1")
 
-objs = []
-objs.append(b"<< /Type /Catalog /Pages 2 0 R >>")
-objs.append(b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>")
-objs.append(b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>")
-objs.append(b"<< /Length " + str(len(stream)).encode() + b" >>\nstream\n" + stream + b"\nendstream")
-objs.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>")
-objs.append(b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>")
+objs = [
+    b"<< /Type /Catalog /Pages 2 0 R >>",
+    b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+    b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>",
+    b"<< /Length " + str(len(stream)).encode() + b" >>\nstream\n" + stream + b"\nendstream",
+    b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+    b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>",
+]
 
 out = bytearray(b"%PDF-1.4\n")
 offsets = []
@@ -59,8 +82,7 @@ for off in offsets:
     out += f"{off:010d} 00000 n \n".encode()
 out += f"trailer\n<< /Size {len(objs)+1} /Root 1 0 R >>\nstartxref\n{xref_pos}\n%%EOF\n".encode()
 
-dest = r"D:\pest control\assets\docs\kavach-sample-service-record.pdf"
-os.makedirs(os.path.dirname(dest), exist_ok=True)
+dest = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kavach-sample-service-record.pdf")
 with open(dest, "wb") as f:
     f.write(out)
 print("Wrote", dest, len(out), "bytes")

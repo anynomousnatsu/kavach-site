@@ -1,29 +1,33 @@
 # Kavach Pest Management — Website
 
-Static 5-page site. Plain HTML/CSS/JS — no framework, no build step, no backend.
+Static 8-page site. Plain HTML/CSS/JS — no framework, no build step, no backend.
 
-**Phone:** 981-8499308 (`+977 9818499308`) — tap-to-call, WhatsApp and Viber on every page.
+**Phone:** 981-8499308 (`+977 9818499308`) — WhatsApp and tap-to-call on every page. No Viber.
 
 ## Pages
 
 | File | URL | Content |
 |---|---|---|
-| `index.html` | `/` | Hero, fixed-price bar, work grid, stat rows, four pricing plans, feature banner, FAQ, CTA |
-| `services.html` | `/services` | `[MOD-01]` four Shield programmes with full spec lists · ten one-off treatments |
-| `pricing.html` | `/pricing` | `[MOD-03]` Kitchen Shield tier table, other programme rates, the guarantee |
-| `about.html` | `/about` | `[MOD-04]` why we exist, four operating rules, what we don't do |
-| `contact.html` | `/contact` | `[MOD-05]` quotation request form + direct contact |
-| `thank-you.html` | — | Form redirect target (noindex) |
-| `404.html` | — | Not-found page (noindex) |
+| `index.html` | `/` | Hero, quote bar, work grid, how a visit works, programmes, FAQ (with `FAQPage`), CTA |
+| `services.html` | `/services` | Four Shield programmes · ten one-off treatments (all quoted) |
+| `restaurant-pest-control.html` | `/restaurant-pest-control` | Kitchen Shield sector page — the only published price |
+| `hotel-pest-control.html` | `/hotel-pest-control` | Room Shield sector page — quarterly room inspections, bed-bug treatment |
+| `warehouse-pest-control.html` | `/warehouse-pest-control` | Store Shield sector page — dry warehouses and godowns only |
+| `pricing.html` | `/pricing` | Kitchen price table, everything else quoted, `#guarantee` callback clause |
+| `about.html` | `/about` | Why records, four operating rules, what we don't do |
+| `contact.html` | `/contact` | Quote form that opens WhatsApp + direct contact |
+| `thank-you.html` | `/thank-you` | Kept for old links (noindex); the form no longer redirects here |
+| `404.html` | — | Served with a 404 status for unknown paths (noindex) |
 
 ## Run locally
 
 ```bash
-python -m http.server 8737
+python tools/preview_server.py
 ```
 
-Open <http://localhost:8737>. Links are root-relative, so use a server — don't open the
-files directly.
+Open <http://localhost:8737>. The preview behaves like the live Cloudflare deploy:
+extensionless URLs, `.html` → 307 redirects, the designed 404 page, and every path in
+`.assetsignore` returning 404. A plain `python -m http.server` will not serve `/pricing`.
 
 ## Design system
 
@@ -120,40 +124,38 @@ so they recolour automatically inside lime and black panels.
 was never registered; if you do register it later, 301 it to `kavachpest.com` rather than
 serving both, or you split your own ranking signal in half.
 
-Cloudflare serves clean URLs and 301s `/x.html` to `/x`, so canonicals are extensionless.
-Internal links keep the `.html` suffix and ride that redirect — harmless on a 7-page site.
+Cloudflare serves clean URLs and 307s `/x.html` to `/x`, so canonicals are extensionless.
+Internal links point straight at the extensionless URLs — never link to `.html`.
 
-**In place on every page:** keyword-first `<title>` (39–53 chars), `<meta description>`
-(85–157 chars, inside Google's truncation point), `keywords`, explicit `robots`,
-canonical, `geo.*` + `ICBM`, full Open Graph and Twitter card pointing at
-`assets/img/og-card.jpg` (1200×630), and `lang="en-NP"`.
+**In place on every page:** keyword-first `<title>`, `<meta description>` under 160
+chars, explicit `robots`, canonical, `geo.region`/`geo.placename`, full Open Graph and
+Twitter card pointing at `assets/img/og-card.jpg` (1200×630), and `lang="en-NP"`. No
+`keywords` meta and no map coordinates — there is no office to pin.
 
 **Structured data** (JSON-LD, one `@graph` per page):
 
-| Type | Where | Earns |
+| Type | Where | Notes |
 |---|---|---|
-| `PestControlService` | every page | local pack, knowledge panel, hours, service area |
-| `OfferCatalog` + `Offer` | home | price visibility for the four programmes |
-| `Service` ×4 | services | per-service eligibility |
-| `FAQPage` | home | FAQ rich results on the SERP |
-| `BreadcrumbList` | inner pages | breadcrumb trail under the result |
+| `LocalBusiness` (`/#business`) | every page | Service-area business: no address, no opening hours until days are confirmed |
+| `Service` | services + each sector page | `@id` = page URL + `#service`; only Kitchen Shield carries an `Offer` |
+| `Offer` + `UnitPriceSpecification` | home, services, restaurant | `minPrice` 4000 NPR, `unitCode` `MON`, 12-month `eligibleDuration` |
+| `FAQPage` | home | Mirrors the visible FAQ. Google only shows FAQ rich results for gov/health sites |
+| `BreadcrumbList` | inner pages | Sector pages: Home → Services → sector, matching the visible breadcrumb |
 | `WebSite` | home | site name handling |
+
+Never use `PestControlService` (not a schema.org type), and never add `Review` or
+`AggregateRating` nodes without real, permitted reviews.
 
 **After deploying, do these three things** — the markup alone will not rank you:
 
 1. **Google Search Console** — add `kavachpest.com`, verify, submit
    `https://kavachpest.com/sitemap.xml`, then *Request indexing* on the homepage.
-2. **Google Business Profile** — this is the single biggest lever for "pest control
-   Kathmandu". The local pack outranks organic results for that query and you cannot
-   enter it without a verified profile. Category: *Pest Control Service*. Use the exact
-   same name, address and phone as the footer — they have to match character for
-   character.
+2. **Google Business Profile** — the biggest lever for "pest control Kathmandu". There
+   is no office, so set it up as a **service-area business** (hide the address, list
+   Kathmandu, Lalitpur and Bhaktapur). Category: *Pest Control Service*. Name and phone
+   must match the site exactly.
 3. **Real reviews** on that profile. Ask every contracted client after their third
    service.
-
-**One thing to correct:** the `geo` coordinates in the JSON-LD and the `geo.position`
-meta are the approximate centre of Chabahil (`27.7189, 85.3450`), not your door. Drop
-your real pin from Google Maps in, or Google may place you a few hundred metres off.
 
 ## Testimonials
 
@@ -168,49 +170,59 @@ with words a client actually said and agreed to publish. Testimonials invented a
 attributed to a named business are illegal in most markets, trivially disproved by a
 phone call, and exactly what a competitor reports.
 
-## Deploy to Cloudflare Pages
+## Deploy (Cloudflare Workers static assets)
 
-1. Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
-2. Pick the `kavach-site` repo
-3. Framework preset **None**, build command **blank**, output directory `/`
-4. **Save and Deploy** → a `*.pages.dev` URL in about a minute
-5. Add `kavachpest.com` under **Custom domains** once the `.com.np` registration is approved
+The live site is a Cloudflare **Worker with static assets**, connected to this repo. Every
+push to `main` redeploys.
 
-Every push to `main` redeploys. Cloudflare serves clean URLs, so `/pricing.html`
-redirects to `/pricing` — matching the canonical tags and `sitemap.xml`.
+- `wrangler.jsonc` — Worker name `kavach-site`, assets served from the repo root,
+  `not_found_handling: "404-page"` so unknown URLs get `404.html` with a 404 status.
+- `.assetsignore` — keeps `.git`, `.claude`, `_snippets`, `tools`, `*.md` and `*.py` off the
+  public site. Anything new that should stay private goes in here.
+- `_headers` — 30-day cache on `/assets/img/*`. Replace an image under a **new filename**,
+  or visitors keep the old one for up to a month.
 
-## ⚠ Before going live
+Dashboard-only settings (not in the repo): **SSL/TLS → Edge Certificates → Always Use
+HTTPS** on; a proxied `www` record with a redirect rule `www.kavachpest.com/*` →
+`https://kavachpest.com/$1` (301); **AI Crawl Control / Bots → AI training bots allowed**
+(robots.txt allows everyone, and the CDN should agree).
 
-1. ~~**Phone number**~~ — done (981-8499308)
-2. ~~**The ten photographs**~~ — done, WebP generated, `<picture>` wired up.
-3. ~~**Testimonials**~~ — placeholders removed; FAQ section took the slot.
-4. **Web3Forms key** — `YOUR-ACCESS-KEY` in `contact.html`. **Until this is set the form
-   delivers nowhere.** Free key at web3forms.com. Confirm the `redirect` URL after the
-   domain is live.
-5. **Address** — footer and contact page say "Chabahil, Ward 7, Kathmandu 44600".
-   Confirm the real office.
-6. **Email** — `operations@kavachpest.com` needs a real mailbox (Zoho Mail free tier).
-7. **Registration + PAN** — not currently shown anywhere. Add to the footer once the
-   Pvt. Ltd. certificate lands; it is a genuine trust signal for a Nepali B2B buyer.
-8. **Fonts** — loaded from Google Fonts. For production, self-host WOFF2 in
-   `assets/fonts/` with `font-display: swap`.
-9. **The two circular "document" buttons** (hero and feature banner) open the sample
-   service-record PDF. If you ever shoot a night-service video, swap the glyph for a
-   play triangle and point them at the video instead.
+**Rollback:** Cloudflare dashboard → Workers & Pages → `kavach-site` → Deployments →
+pick the previous version → *Rollback*. In git, `git revert <merge commit>` and push.
+
+## Business facts the copy depends on (confirmed 2026-10-06)
+
+Visits 5 AM – 9 PM by appointment · WhatsApp replies (quotes and complaints) within
+2–3 hours · restaurants from NPR 4,000/month on a 12-month contract, 1–2 visits a month ·
+everything else quoted · records: logbook, WhatsApp photo report, certificate, per-room
+card (no monthly trend report) · steam for bed bugs · dry warehouses only · no
+fumigation · no office · no Viber · not yet a registered company (never write "Pvt.
+Ltd.") · photos are generated and labelled "Illustrative image".
+
+Change any of these and grep the whole site — they repeat across pages, and the
+callback clause must read the same everywhere, including the sample PDF.
+
+## Still open
+
+1. **Prices** for hotels, warehouses, homes and one-off treatments (currently "Quote").
+2. **Email** — no mailbox yet, so no address is published. When one exists, add MX/SPF/
+   DKIM in Cloudflare DNS, then add it to the footer, contact page and JSON-LD `email`.
+3. **Company registration + PAN** — add both to the footer once they exist.
+4. **Pesticide licence** — the Pesticides Management Act 2076 appears to require a
+   provincial licence for commercial spraying. Check with the Bagmati Province committee.
+5. **Days of operation** — add `openingHoursSpecification` once the days are confirmed.
+6. **Real photos** with client permission, to replace the illustrations.
+7. **Fonts** — self-host WOFF2 in `assets/fonts/` for speed.
 
 ## Launch gate
 
-- [x] Every price matches the business plan rate card
-- [x] No horizontal overflow at 375 / 768 / 1440px; tap targets above 44px
-- [x] Every image has descriptive alt text; missing files degrade to labelled tiles
-- [x] Ten photographs in place, all at exact aspect ratio (zero crop)
-- [x] Photographs optimised — WebP via `<picture>`, 35% lighter, oversized pair downsized
-- [x] Placeholder testimonials removed — FAQ section in their place
-- [x] SEO: live domain everywhere, structured data, OG card, sitemap
+- [x] No horizontal overflow at 375px on any page
+- [x] Every image labelled illustrative, with honest alt text
+- [x] Responsive hero (480/800/1200 WebP) — phones load 36–78 KB instead of 223 KB
+- [x] No `.html` internal links; 0 internal 3xx in a local crawl
+- [x] Structured data uses only schema.org types; prices match visible copy
+- [x] Quote form opens WhatsApp with the request pre-filled
 - [ ] Google Search Console verified + sitemap submitted
-- [ ] Google Business Profile created and verified
-- [ ] Exact office coordinates replacing the Chabahil approximation
-- [ ] Form delivers to your inbox — test 3×, including from mobile
-- [ ] WhatsApp and Viber deep links tested on a real Android phone
-- [ ] Lighthouse mobile performance 90+
-- [ ] Someone who is not you has read the homepage and can state your differentiator back to you
+- [ ] Google Business Profile (service-area) created and verified
+- [ ] WhatsApp form and tap-to-call tested on a real Android phone
+- [ ] Lighthouse / PageSpeed mobile run after deploy

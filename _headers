@@ -1,0 +1,3 @@
+# Images are replaced under new filenames, so they can be cached for 30 days.
+/assets/img/*
+  Cache-Control: public, max-age=2592000

@@ -5,6 +5,7 @@
   'use strict';
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ne = document.documentElement.lang.indexOf('ne') === 0;
 
   /* ---- Mobile menu ----------------------------------------------------- */
   var toggle = document.querySelector('.menu-toggle');
@@ -13,7 +14,7 @@
     toggle.addEventListener('click', function () {
       var open = mobileNav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      toggle.querySelector('.mt-label').textContent = open ? 'Close' : 'Menu';
+      toggle.querySelector('.mt-label').textContent = ne ? (open ? 'बन्द गर्नुहोस्' : 'मेनु') : (open ? 'Close' : 'Menu');
     });
   }
 
@@ -25,17 +26,13 @@
     var utcMin = now.getUTCHours() * 60 + now.getUTCMinutes();
     var nptMin = (utcMin + 345) % 1440;
     var h = Math.floor(nptMin / 60);
-    var m = nptMin % 60;
-    var hh = (h < 10 ? '0' : '') + h;
-    var mm = (m < 10 ? '0' : '') + m;
     var live = (h >= 5 && h < 21);
     Array.prototype.forEach.call(els, function (el) {
       el.classList.toggle('is-live', live);
       var txt = el.querySelector('.np-text');
       if (txt) {
-        txt.textContent = live
-          ? 'Open now · ' + hh + ':' + mm + ' NPT'
-          : 'Back at 05:00 NPT';
+        // The visit window is confirmed; specific operating days are not.
+        txt.textContent = ne ? 'भ्रमण बिहान ५–बेलुका ९ बजे' : 'Visits 05:00–21:00 NPT';
       }
     });
   }
@@ -83,7 +80,7 @@
 
   /* ---- Quote-bar → contact form prefill --------------------------------- */
   var params = new URLSearchParams(window.location.search);
-  ['facility_type', 'area_sqft'].forEach(function (key) {
+  ['facility_type', 'area_sqft', 'service_city', 'request_type', 'pest_type'].forEach(function (key) {
     var val = params.get(key);
     if (!val) return;
     var el = document.querySelector('[name="' + key + '"]');
@@ -99,13 +96,27 @@
     quote.addEventListener('submit', function (e) {
       e.preventDefault();
       var f = quote.elements;
-      var lines = ['Quote request from kavachpest.com'];
-      [['facility_type', 'Facility'], ['area_sqft', 'Area'], ['name', 'Name'],
-       ['location', 'Location'], ['notes', 'Notes']].forEach(function (pair) {
+      var lines = [ne ? 'kavachpest.com बाट लागत अनुरोध' : 'Quote request from kavachpest.com'];
+      [['facility_type', 'Facility'], ['service_city', 'City'], ['request_type', 'Request'],
+       ['pest_type', 'Pest'], ['area_sqft', 'Area / total rooms'], ['name', 'Name'],
+       ['location', 'Location / area'], ['notes', 'What we have seen']].forEach(function (pair) {
         var el = f[pair[0]];
         var v = el && el.value.trim();
         if (v) lines.push(pair[1] + ': ' + v);
       });
+      if (window.KavachEnquiries) {
+        var attribution = window.KavachEnquiries.attribution();
+        lines.push('Website entry: ' + attribution.landing);
+        lines.push('Source clue: ' + attribution.source + ' / ' + attribution.medium + (attribution.campaign ? ' / ' + attribution.campaign : ''));
+        var buckets = { 'Restaurant / F&B': 'restaurant', 'Hotel / Guesthouse': 'hotel', 'Warehouse / Godown': 'warehouse', 'Office / Retail': 'office_retail', 'Residential': 'residential' };
+        var cities = { Kathmandu: 'kathmandu', Lalitpur: 'lalitpur', Bhaktapur: 'bhaktapur', Other: 'other' };
+        var requests = { 'Recurring programme': 'programme', 'One-off treatment': 'treatment', 'Not sure': 'not_sure' };
+        window.KavachEnquiries.track('quote_handoff', {
+          facility_bucket: buckets[f.facility_type.value] || 'unknown',
+          service_city: cities[f.service_city && f.service_city.value] || 'unknown',
+          request_type: requests[f.request_type && f.request_type.value] || 'unknown'
+        });
+      }
       var url = 'https://wa.me/' + quote.getAttribute('data-wa') +
                 '?text=' + encodeURIComponent(lines.join('\n'));
       window.location.href = url;

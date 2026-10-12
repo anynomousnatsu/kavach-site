@@ -1,3 +1,7 @@
 # Images are replaced under new filenames, so they can be cached for 30 days.
 /assets/img/*
   Cache-Control: public, max-age=2592000
+
+# Font filenames contain content hashes; new versions get new URLs.
+/assets/fonts/*.woff2
+  Cache-Control: public, max-age=31536000, immutable

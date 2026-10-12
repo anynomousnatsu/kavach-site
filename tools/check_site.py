@@ -11,11 +11,12 @@ BASE=sys.argv[1] if len(sys.argv)>1 else 'http://127.0.0.1:8737'
 DOMAIN='https://kavachpest.com'
 class Page(HTMLParser):
     def __init__(self,text):
-        super().__init__();self.links=[];self.assets=[];self.ids=[];self.labels=[];self.controls=[];self.head={};self.h1=0;self.alternates={};self.feed(text)
+        super().__init__();self.links=[];self.assets=[];self.ids=[];self.labels=[];self.controls=[];self.head={};self.h1=0;self.headings=[];self.alternates={};self.feed(text)
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if 'id' in a:self.ids.append(a['id'])
         if tag=='h1':self.h1+=1
+        if re.fullmatch(r'h[1-6]',tag):self.headings.append(int(tag[1]))
         if tag=='a':self.links.append(a.get('href',''))
         if tag=='meta':self.head[a.get('name',a.get('property',''))]=a.get('content','')
         if tag=='link' and a.get('rel')=='canonical':self.head['canonical']=a.get('href')
@@ -41,6 +42,7 @@ for file in ROOT.glob('*.html'):
     s=file.read_text(encoding='utf-8');p=Page(s);path='/' if file.stem=='index' else '/'+file.stem;pages[path]=p
     assert p.head.get('canonical'),file
     if p.h1!=1:errors.append(f'{path}: H1 count {p.h1}')
+    if any(b>a+1 for a,b in zip(p.headings,p.headings[1:])):errors.append(f'{path}: skipped heading level')
     title=re.search(r'<title>(.*?)</title>',s).group(1)
     if title in seen_titles:errors.append(f'{path}: duplicate title')
     seen_titles.add(title)

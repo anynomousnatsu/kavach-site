@@ -62,7 +62,7 @@ img { height: auto; display: block; }
 a { color: inherit; }
 button { font: inherit; color: inherit; }
 
-h1, h2, h3, h4 {
+h1, h2, h3, :is(h4, .h4) {
   font-family: var(--display);
   color: var(--ink);
   margin: 0;
@@ -144,7 +144,7 @@ h3, .h3 {
   letter-spacing: -0.02em;
 }
 
-h4 { font-size: 1.05rem; letter-spacing: -0.01em; }
+:is(h4, .h4) { font-size: 1.05rem; letter-spacing: -0.01em; }
 
 h1 em, h2 em, .h1 em, .h2 em {
   font-style: italic;
@@ -986,7 +986,7 @@ a.card:hover { border-color: var(--ink); transform: translateY(-3px); }
   letter-spacing: 0.06em;
   color: var(--muted);
 }
-.card h4 { margin: 10px 0 8px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: -0.01em; }
+.card :is(h4, .h4) { margin: 10px 0 8px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: -0.01em; }
 .card p { font-size: 0.89rem; color: var(--ink-2); }
 .card .price {
   display: block;
@@ -1036,7 +1036,7 @@ a.card:hover { border-color: var(--ink); transform: translateY(-3px); }
   color: var(--lime-d);
   line-height: 1;
 }
-.step h4 { margin-bottom: 6px; font-size: 1.05rem; text-transform: uppercase; }
+.step :is(h4, .h4) { margin-bottom: 6px; font-size: 1.05rem; text-transform: uppercase; }
 .step p { font-size: 0.9rem; color: var(--ink-2); }
 
 /* Rate rows */
@@ -1234,7 +1234,7 @@ a.card:hover { border-color: var(--ink); transform: translateY(-3px); }
   display: block;
   margin-bottom: 14px;
 }
-.foot-cols h4 {
+.foot-cols :is(h4, .h4) {
   color: #fff;
   font-size: 0.72rem;
   font-weight: 700;
@@ -1399,7 +1399,7 @@ a.card:hover { border-color: var(--ink); transform: translateY(-3px); }
 .quote-help { padding: 16px 20px; border-left: 3px solid var(--lime-d); background: var(--soft); border-radius: var(--r-sm); }
 .form-note { font-size: .85rem; color: var(--ink-2); }
 html[lang^="ne"] { --deva: 'Kavach Devanagari', 'Noto Sans Devanagari', var(--sans); }
-html[lang^="ne"] body, html[lang^="ne"] h1, html[lang^="ne"] h2, html[lang^="ne"] h3, html[lang^="ne"] h4, html[lang^="ne"] .btn { font-family: var(--deva); }
+html[lang^="ne"] body, html[lang^="ne"] h1, html[lang^="ne"] h2, html[lang^="ne"] h3, html[lang^="ne"] :is(h4, .h4), html[lang^="ne"] .btn { font-family: var(--deva); }
 html[lang^="ne"] h1, html[lang^="ne"] h2 { line-height: 1.45; text-transform: none; letter-spacing: 0; }
 html[lang^="ne"] .night-pill { font-family: var(--deva); }
 .consent-panel { position: fixed; bottom: 72px; left: 16px; right: 16px; z-index: 150; max-width: 560px; padding: 20px; display: flex; gap: 12px; flex-wrap: wrap; background: white; border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: 0 8px 40px #0002; }

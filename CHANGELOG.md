@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0.1] - 2026-10-12
+
+### Fixed
+
+- Give assistive readers a consistent service/footer heading outline without changing visual heading styles.
+- Check heading-level jumps in the static site validation to prevent regressions.
+
 ## [0.1.0.0] - 2026-10-12
 
 ### Added

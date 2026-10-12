@@ -162,7 +162,8 @@ Internal links point straight at the extensionless URLs — never link to `.html
 
 **In place on every page:** individual `<title>`, concise `<meta description>`,
 explicit `robots`, canonical, full Open Graph and
-Twitter card pointing at `assets/img/og-card.jpg` (1200×630), and `lang="en-NP"`. No
+Twitter card pointing at `assets/img/og-card.jpg` (1200×630), and `lang="en-NP"`
+or `lang="ne-NP"` for the two Nepali pages. No
 `keywords` meta and no map coordinates — there is no office to pin.
 
 **Structured data** (JSON-LD, one `@graph` per page):
@@ -170,7 +171,7 @@ Twitter card pointing at `assets/img/og-card.jpg` (1200×630), and `lang="en-NP"
 | Type | Where | Notes |
 |---|---|---|
 | `LocalBusiness` (`/#business`) | every page | Service-area business: no address, no opening hours until days are confirmed |
-| `Service` | services + each sector page | `@id` = page URL + `#service`; only Kitchen Shield carries an `Offer` |
+| `Service` | services, each sector page and the two one-off treatment pages | `@id` = page URL + `#service`; only Kitchen Shield carries an `Offer` |
 | `Offer` + `UnitPriceSpecification` | home, services, restaurant | `minPrice` 4000 NPR, `unitCode` `MON`, 12-month `eligibleDuration` |
 | `WebPage` / `ContactPage` | existing public pages | Page entity separate from the business ID |
 | `Article` | three buyer guides | Organization author, actual content date and relevant programme links |

@@ -7,6 +7,9 @@
 <meta name="description" content="Get a pest control quote anywhere in the Kathmandu Valley. Send your facility type and area on WhatsApp; we reply within 2–3 hours, 5 AM to 9 PM.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://kavachpest.com/contact">
+<link rel="alternate" hreflang="en-NP" href="https://kavachpest.com/contact">
+<link rel="alternate" hreflang="ne-NP" href="https://kavachpest.com/contact-nepali">
+<link rel="alternate" hreflang="x-default" href="https://kavachpest.com/contact">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#C5F24C">
 <meta name="author" content="Kavach Pest Management">
@@ -80,14 +83,23 @@
           "item": "https://kavachpest.com/contact"
         }
       ]
+    },
+    {
+      "@type": "ContactPage",
+      "@id": "https://kavachpest.com/contact#page",
+      "url": "https://kavachpest.com/contact",
+      "name": "Pest Control Quote in Kathmandu | Contact Kavach",
+      "inLanguage": "en-NP",
+      "about": {
+        "@id": "https://kavachpest.com/#business"
+      }
     }
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="/assets/fonts/inter-normal-3100e775.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="/assets/css/site.min.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -107,6 +119,7 @@
         <li><a href="/services">Services</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/about">About</a></li>
+        <li><a href="/resources">Guides</a></li>
         <li><a href="/contact" aria-current="page">Contact</a></li>
       </ul>
     </nav>
@@ -130,6 +143,7 @@
       <li><a href="/services">Services</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="/about">About</a></li>
+        <li><a href="/resources">Guides</a></li>
       <li><a href="/contact" aria-current="page">Contact</a></li>
     </ul>
     <div class="mobile-cta">
@@ -140,6 +154,7 @@
 </header>
 
 <main id="main">
+<div class="container mt-16"><a class="language-link" href="/contact-nepali" lang="ne">नेपालीमा लागत माग्नुहोस्</a></div>
 
   <section class="hero">
     <div class="container">
@@ -160,42 +175,45 @@
         <div>
           <div class="sec-head" style="margin-bottom:26px">
             <span class="idx">[01] Quote Request</span>
-            <h2>Five Fields.<br>Sent On <em>WhatsApp</em>.</h2>
+            <h2>Your Site.<br>Your <em>Quote</em>.</h2>
           </div>
           <form action="https://wa.me/9779818499308" method="get" class="form" id="quote-form" data-wa="9779818499308">
             <input type="hidden" name="text" value="Hi Kavach, I'd like a quote.">
-            <div class="field">
+<div class="field">
               <label for="f-type">Facility type</label>
               <select id="f-type" name="facility_type" required>
                 <option value="">Select…</option>
-                <option>Restaurant / F&amp;B</option>
-                <option>Hotel / Guesthouse</option>
-                <option>Warehouse / Godown</option>
-                <option>Office / Retail</option>
-                <option>Residential</option>
+                <option value="Restaurant / F&amp;B">Restaurant / F&amp;B</option>
+                <option value="Hotel / Guesthouse">Hotel / Guesthouse</option>
+                <option value="Warehouse / Godown">Warehouse / Godown</option>
+                <option value="Office / Retail">Office / Retail</option>
+                <option value="Residential">Residential</option>
               </select>
             </div>
-            <div class="field">
+<div class="field"><label for="f-city">City</label><select id="f-city" name="service_city" required><option value="">Select city…</option><option value="Kathmandu">Kathmandu</option><option value="Lalitpur">Lalitpur</option><option value="Bhaktapur">Bhaktapur</option><option value="Other">Other / confirm coverage</option></select></div>
+<div class="field">
               <label for="f-area">Area (sq ft or rooms)</label>
               <input id="f-area" name="area_sqft" type="text" placeholder="e.g. 1,850 sq ft or 24 rooms">
             </div>
-            <div class="field">
+<div class="field"><label for="f-request">What do you need?</label><select id="f-request" name="request_type"><option value="Not sure">Not sure yet</option><option value="Recurring programme">Recurring programme</option><option value="One-off treatment">One-off treatment</option></select></div>
+<div class="field">
               <label for="f-name">Your name</label>
               <input id="f-name" name="name" type="text" autocomplete="name" required>
             </div>
-            <div class="field">
+<div class="field">
               <label for="f-loc">Location / area</label>
               <input id="f-loc" name="location" type="text" placeholder="e.g. Thamel, Jhamsikhel" required>
             </div>
-            <div class="field full">
-              <label for="f-notes">What have you seen, and where?</label>
+<div class="field full"><label for="f-pest">Main pest issue (optional)</label><select id="f-pest" name="pest_type"><option value="">Select if known…</option><option value="Cockroaches">Cockroaches</option><option value="Bed bugs">Bed bugs</option><option value="Rodents">Rodents</option><option value="Termites">Termites</option><option value="Other / not identified">Other / not identified</option></select></div>
+<div class="field full">
+              <label for="f-notes">What have you seen, and where? Include affected rooms or visit constraints.</label>
               <textarea id="f-notes" name="notes" rows="4"></textarea>
             </div>
             <div class="full">
               <button class="btn btn--lime" type="submit">Send on WhatsApp</button>
               <p class="mt-16 muted small">This opens WhatsApp with your details filled in. Nothing is sent until you press send there. A quote request is not a booked visit.</p>
             </div>
-          </form>
+          <p class="form-note mt-16">Your message includes the website entry page and a broad source clue, to help us understand the enquiry. Avoid guest names or sensitive information. <a href="/privacy">Privacy details</a>.</p><noscript><p class="quote-help mt-16">JavaScript is off. <a href="https://wa.me/9779818499308?text=Hi%20Kavach%2C%20I%27d%20like%20a%20quote.">Open WhatsApp directly</a> and type your facility, city, area and pest issue there. The form details cannot be combined automatically without JavaScript.</p></noscript></form>
         </div>
 
         <div>
@@ -220,7 +238,7 @@
           </div>
           <div class="card card--soft mt-32">
             <span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M9 14l-1.5 7L12 19l4.5 2L15 14"/></svg></span>
-            <h4>48-hour callback</h4>
+            <h3>48-hour callback</h3>
             <p>If pests come back within 48 hours of a scheduled service, tell us and we return to re-treat at no charge. This is written into every contract.</p>
           </div>
         </div>
@@ -235,7 +253,7 @@
       <div>
         <span class="foot-brand">Kavach</span>
         <p>Pest control for kitchens, hotels, warehouses and homes across the Kathmandu Valley. Every visit is written up and every bait station is numbered.</p>
-        <p class="deva mt-16" lang="ne" style="color:rgba(255,255,255,.45)">कवच पेस्ट म्यानेजमेन्ट</p>
+        <p class="deva mt-16" lang="ne" style="color:rgba(255,255,255,.7)">कवच पेस्ट म्यानेजमेन्ट</p>
         <div class="socials">
           <a href="https://wa.me/9779818499308" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.5 8.5 0 1 1 21 11.5Z"/></svg></a>
           <a href="tel:+9779818499308" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3.5l1.8 4.4-2.2 1.6a12 12 0 0 0 5.9 5.9l1.6-2.2L20 14.5V18a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 3 5.2 2 2 0 0 1 5 3Z"/></svg></a>
@@ -247,7 +265,7 @@
           <li><a href="/restaurant-pest-control">Restaurants &amp; kitchens</a></li>
           <li><a href="/hotel-pest-control">Hotels &amp; guesthouses</a></li>
           <li><a href="/warehouse-pest-control">Warehouses &amp; godowns</a></li>
-          <li><a href="/services">All services</a></li>
+          <li><a href="/services">All services</a></li><li><a href="/cockroach-control">Cockroach control</a></li><li><a href="/bed-bug-treatment">Bed-bug treatment</a></li>
           <li><a href="/pricing">Pricing</a></li>
         </ul>
       </div>
@@ -257,7 +275,7 @@
           <li>Kathmandu, Lalitpur and Bhaktapur. We come to you.</li>
           <li><a href="https://wa.me/9779818499308">WhatsApp +977 981-8499308</a></li>
           <li><a href="/contact">Request a quote</a></li>
-          <li><a href="/about">About Kavach</a></li>
+          <li><a href="/about">About Kavach</a></li><li><a href="/resources">Commercial guides</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/nepali" lang="ne">नेपालीमा पढ्नुहोस्</a></li>
         </ul>
       </div>
       <div>
@@ -284,7 +302,7 @@
           <picture>
             <source srcset="/assets/img/footer-kit.webp" type="image/webp">
             <img src="/assets/img/footer-kit.png" width="1240" height="420" loading="lazy"
-                 alt="Illustrative image of pest control equipment: sprayer, gel applicator, bait stations, torch and logbook">
+                 alt="Illustrative image of pest control equipment: sprayer, gel applicator, bait stations, torch and logbook" decoding="async">
           </picture>
         </div>
       </div>
@@ -297,6 +315,8 @@
   <a class="cb-call" href="tel:+9779818499308">Call Now</a>
 </div>
 
+<script src="/assets/js/analytics-config.js" defer></script>
+<script src="/assets/js/enquiries.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

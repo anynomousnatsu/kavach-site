@@ -6,6 +6,7 @@
 .gitattributes
 .assetsignore
 wrangler.jsonc
+VERSION
 _snippets
 tools
 node_modules

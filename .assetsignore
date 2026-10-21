@@ -9,6 +9,8 @@ wrangler.jsonc
 VERSION
 _snippets
 tools
+*-audit
+.gstack
 node_modules
 *.md
 *.py

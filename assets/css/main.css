@@ -1390,9 +1390,17 @@ a.card:hover { border-color: var(--ink); transform: translateY(-3px); }
 .content-shell ul, .content-shell ol { padding-left: 22px; list-style: disc; margin: 20px 0; }
 .content-shell ol { list-style: decimal; }
 .content-shell li { margin: 8px 0; }
+.copy-list { list-style: disc; padding-left: 22px; margin: 16px 0; }
+.copy-list li { margin: 8px 0; }
+.key-fact { max-width: 780px; margin: 18px 0; font-size: 1.05rem; color: var(--ink); }
+.statrow__body .copy-list { margin-bottom: 0; }
+caption { text-align: left; padding: 14px 16px; font-weight: 600; color: var(--ink); }
+.content-table-wrap + .muted { margin-top: 20px; }
+.content-table tbody th { background: transparent; font-weight: 600; }
 .content-shell a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .content-meta { display: flex; gap: 12px; flex-wrap: wrap; font-size: .85rem; color: var(--muted); margin: 18px 0; }
 .content-table-wrap { overflow-x: auto; }
+.content-table-wrap .content-table { min-width: 600px; }
 .content-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
 .content-table th, .content-table td { text-align: left; padding: 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .content-table th { background: var(--soft); color: var(--ink); }

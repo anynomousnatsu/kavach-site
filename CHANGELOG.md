@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.1.0] - 2026-10-22
+
+### Changed
+
+- Compare recurring programme schedules and hotel inspection/treatment charges in labelled tables.
+- Find service scope, quote requirements and records under clearer headings and focused fact lists.
+- Read price commitments, visit times and exclusions with their conditions intact in English and Nepali.
+- Review quote-message handling, session attribution and optional analytics as separate facts.
+
+### Fixed
+
+- Keep local audit reports and release artifacts outside the public static assets.
+
 ## [0.1.0.1] - 2026-10-12
 
 ### Fixed

@@ -189,6 +189,14 @@ scope, prices, exclusions and buyer answers. See Google's official
 [AI optimization guide](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
 and [documentation updates](https://developers.google.com/search/updates).
 
+Content follows the SEO Bullet format: descriptive headings, direct answers,
+focused fact lists and labelled comparison tables. Keep price units, contract
+terms and exclusions beside the claims they qualify. Tables compare programme
+schedules and hotel inspection/treatment charges; they do not introduce prices
+for quoted work. Existing business/service entity IDs and offer facts remain
+the source of truth for JSON-LD. Revise a guide's visible update date and its
+Article `dateModified` together when its content changes.
+
 English homepage/contact and their Nepali equivalents are self-canonical, with
 reciprocal `en-NP`, `ne-NP` and `x-default` alternates in HTML. Language links
 are explicit; there is no automatic browser-language redirect. Sector/treatment
